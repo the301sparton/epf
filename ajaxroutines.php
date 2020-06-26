@@ -2,6 +2,7 @@
 
 
 
+
  session_start(); ?>
 <?php
 	include_once('Comp.php');?>
