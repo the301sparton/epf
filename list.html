@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="css/css1.css" />
+
+<style type="text/css">
+<!--
+.style1 {color: #000000;
+border-right-style:solid; border-right-color:#999999; border-right-width:1px;}
+.tbox {border:hidden; background-color: #CCCCCC; text-align:right;}
+-->
+</style>
+<script type="text/javascript">
+	var xmlhttp;
+	var p_r=0;
+	month_yr_change=false;
+	function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+	function chkpgno()
+	{
+		vpgno=document.getElementById("pgno").value
+		if(vpgno<0) vpgno=1
+		if(vpgno>1)
+		{
+			vpgno--;
+			document.getElementById("pgno").value=vpgno;
+			showdata();
+		}
+	}
+	
+	function prevpg()
+	{
+		vpgno=document.getElementById("pgno").value
+		if(vpgno>1)
+		{
+			vpgno--;
+			document.getElementById("pgno").value=vpgno;
+			showdata();
+		}
+	}
+	function nextpg()
+	{
+		ros=document.getElementById("dlist").rows
+		if(ros.length>=10)
+		{
+			vpgno=document.getElementById("pgno").value
+			vpgno++;
+			document.getElementById("pgno").value=vpgno;
+			showdata();
+		}	
+	} 
+	function chkall()
+	{
+		var ros=document.getElementById("dlist").rows
+		chk = document.getElementById("asel").checked
+		for(i=0;i<ros.length-1;i++)
+		{
+			st="sel"+i
+			document.getElementById(st).checked=chk
+		}
+	}
+	function stext(ctl)
+	{
+		document.getElementById(ctl).select();
+	}
+	function updtMast()
+	{
+		getxmlhttp();
+		var ros=document.getElementById("dlist").rows
+		chk = document.getElementById("asel").checked
+		st="";cnt=0;
+		for(i=0;i<ros.length-1;i++)
+		{
+			if(document.getElementById("sel"+i).checked==true)
+			{
+				if(cnt>0) st=st+"|"
+				st=st+document.getElementById("empno"+i).innerHTML+"~"
+				st=st+document.getElementById("t"+i+"0").value+"~"
+				st=st+document.getElementById("t"+i+"1").value+"~"
+				st=st+document.getElementById("t"+i+"2").value+"~"
+				st=st+document.getElementById("t"+i+"3").value
+//				st=st+document.getElementById("t"+i+"3").value+"~"
+			}				
+		}
+		temp="&data="+st
+//			$rst = $rst.$row['srno']."~".$row['pfno']."~".$row['sname']."~".$row['wages']."~".$row['share1']."~".$row['share2']."~".$row['pension']."~".$row['bdate']."~".$row['msrno']."~".$flag."|";
+//    empno_i             row[1]           row[2]  	       ti0               ti1                  ti2             ti3               row[7]               ti4              ti5
+//		alert(temp);
+		temp = "n="+Math.random()+temp+"&vcnt=33"
+//alert(temp);
+		xmlhttp.onreadystatechange=chkres;
+		xmlhttp.open("POST","ajaxroutines.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function showdata(n)
+	{
+		getxmlhttp();
+		var sernam;
+		sernam="";
+//		alert(n);
+		month_yr_change=false;
+		if(n==0)
+			sernam="-";
+		else
+			sernam=document.getElementById("snam").value;
+		mon = document.getElementById("smonth").value
+		yr = document.getElementById("syr").value
+//		pg=pgno;
+		pg=document.getElementById("pgno").value
+		if(pgno==1)
+		{
+			recno=1
+		}
+		else
+		{
+			recno = (pg-1)*10+1
+		}
+		temp="&sernam="+sernam+"&mon="+mon+"&yr="+yr+"&recno="+recno
+		temp = "n="+Math.random()+temp+"&vcnt=31"
+	//	alert(temp);
+		xmlhttp.onreadystatechange=showRec;
+		xmlhttp.open("POST","ajaxroutines.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+		
+	}
+	function showRec()
+	{
+		if(xmlhttp.readyState==4)
+		{
+			st=xmlhttp.responseText;
+		//	alert(st);
+			arr=st.split("|");
+			st="<table id='dlist' border='1' cellpadding='0' cellspacing='0'>"
+			st=st+"<tr><td width='30' class='list_back'><div align='center' class='style'><input type='checkbox' id='asel' onclick='chkall()'/>"
+			st=st+"<td width='60' class='list_back'><div align='center' class='style1'>Emp No</div></td>"
+        	st=st+"<td width='60' class='list_back'><div align='center' class='style1'>PF No</div></td>"
+        	st=st+"<td width='300' class='list_back'> <div align='center' class='style1'>Name</div></td>"
+        	st=st+"<td width='70' class='list_back'><div align='center' class='style1'>Wages</div></td>"
+        	st=st+"<td width='70' class='list_back'><div align='center' class='style1'>E'ee Share</div></td>"
+        	st=st+"<td width='70' class='list_back'><div align='center' class='style1'>E'er Share</div></td>"
+        	st=st+"<td width='70' class='list_back'><div align='center' class='style11'>Pension</div></td>"
+        	st=st+"<td width='85' class='list_back'><div align='center' >B. Date</div></td>"
+        	st=st+"<td style='visibility:hidden'></td><td style='visibility:hidden'></td></tr>"
+			for(i=0;i<arr.length;i++)
+			{
+//				alert(arr[i]);
+				row=arr[i].split("~")
+//				alert(row[0])
+				if(row[0]=="") continue;
+		//		alert(row[9]);
+				if(row[9]==0) 
+					st=st+"<tr style='background-color:#FFFFFF;'>"
+				else				
+					st=st+"<tr style='background-color:#66FFFF;'>"
+				st=st+"<td align='center'><input type='checkbox' id='sel"+i+"'></td>"
+				st=st+"<td id='empno"+i+"'>"+row[0]+"</td><td>"+row[1]+"</td><td>"+row[2]+"</td>"
+st=st+"<td><input type='text' class='tbox' size='8' id='t"+i+"0' value="+row[3]+" onfocus='this.select()' onblur='calc("+i+")'/></td>"
+				st=st+"<td><input type='text' class='tbox' id='t"+i+"1' size='8' onfocus='this.select()' value="+row[4]+" /></td>"
+				st=st+"<td><input type='text' class='tbox' id='t"+i+"2' size='8' onfocus='this.select()' value="+row[5]+" /></td>"
+				st=st+"<td><input type='text' class='tbox' id='t"+i+"3' size='8' onfocus='this.select()' value="+row[6]+" /></td>" 
+				st=st+"<td>"+row[7]+"</td>"
+				st=st+"<td style='visibility:hidden'><input type='hidden' id='t"+i+"4' value="+row[8]+" /></td>"
+				st=st+"<td style='visibility:hidden'><input type='hidden' id='t"+i+"5' value="+row[9]+" /></td>"
+				st=st+"<td><input type='button' id='edit"+i+"' value='Edit' onclick='editRec("+i+")'/></td>"
+				st=st+"</tr>"			
+			}
+			document.getElementById("dtls").innerHTML=st
+		}
+	}
+	function saveData()
+	{
+//		alert("A");
+		var st;
+		getxmlhttp();
+		st=document.getElementById("smonth").value + "~"+document.getElementById("syr").value;
+		for(n=1;n<document.getElementById('dlist').rows.length;n++)
+		{
+			i=n-1;
+//			alert(document.getElementById("empno"+i).innerHTML);
+			if (document.getElementById("sel"+i).checked)
+			{
+				if(month_yr_change==true)
+				{	st=st+"#0|";}
+				else
+				{	st=st+"#"+document.getElementById("t"+i+"5").value+"|";}
+				st=st+document.getElementById("t"+i+"4").value+"|"
+				st=st+document.getElementById("t"+i+"0").value+"|"
+				st=st+document.getElementById("t"+i+"1").value+"|"
+				st=st+document.getElementById("t"+i+"2").value+"|"
+				st=st+document.getElementById("t"+i+"3").value+"|"
+				st=st+document.getElementById("empno"+i).innerHTML+"|"
+			}
+		}
+		temp="&data="+st
+		temp = "n="+Math.random()+temp+"&vcnt=32"
+	//	alert(temp);
+		xmlhttp.onreadystatechange=chkres;
+		document.getElementById("post").disabled=true;
+		document.getElementById("rem_data").disabled=true;
+		
+		xmlhttp.open("POST","ajaxroutines.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function chkres()
+	{
+		if(xmlhttp.readyState==4)
+		{
+//			alert(xmlhttp.responseText);
+			if(parseInt(xmlhttp.responseText)=='0')
+			{
+				showdata();
+				alert("Data posted Successfully!");
+			}
+			document.getElementById("post").disabled=false;
+		}
+	}
+
+	function remData()
+	{
+//		alert("A");
+		getxmlhttp();
+//		if ((document.getElementById("smonth").value).length ="" || document.getElementById("syr").value="")
+		st="&mon="+document.getElementById("smonth").value + "&yr="+document.getElementById("syr").value;
+/*		for(n=1;n<document.getElementById('dlist').rows.length;n++)
+		{
+			i=n-1;
+//			alert(i);
+			if (document.getElementById("sel"+i).checked)
+			{
+				st=st+"#"+document.getElementById("t"+i+"5").value+"|"
+				st=st+document.getElementById("t"+i+"4").value+"|"
+				st=st+document.getElementById("t"+i+"0").value+"|"
+				st=st+document.getElementById("t"+i+"1").value+"|"
+				st=st+document.getElementById("t"+i+"2").value+"|"
+				st=st+document.getElementById("t"+i+"3").value+"|"
+			}
+		} */
+//		temp="&data="+st
+		
+		temp = "n="+Math.random()+st+"&vcnt=35"
+//		alert(temp);
+		xmlhttp.onreadystatechange=chk_rem;
+		document.getElementById("post").disabled=true;
+		document.getElementById("rem_data").disabled=true;
+			
+		xmlhttp.open("POST","ajaxroutines.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function chk_rem()
+	{
+		if(xmlhttp.readyState==4)
+		{
+//			alert(xmlhttp.responseText);
+			if(parseInt(xmlhttp.responseText)=='0')
+			{
+				showdata();
+				alert("Data Removed Successfully!");
+			}
+			document.getElementById("post").disabled=false;
+			document.getElementById("rem_data").disabled=false;
+		}
+	}
+
+
+
+	function calc(i)
+	{
+//		alert(i);
+		p_r=i;
+		mons="JanFebMarAprMayJunJulAugSepOctNovDec"
+		sal = document.getElementById("t"+i+"0").value
+		vsrno=document.getElementById("empno"+i).innerHTML
+//		alert(vsrno);
+		temp = "&srno="+vsrno+"&wages="+sal
+		mno = parseInt(mons.indexOf(document.getElementById("smonth").value))/3
+//		alert(mno)
+		if(mno>0 && document.getElementById("syr").value>1900)
+		{temp = temp+"&cdate="+"01-"+document.getElementById("smonth").value+"-"+document.getElementById("syr").value;}
+		getxmlhttp();
+		temp = "n="+Math.random()+temp+"&vcnt=34"
+//		alert(temp);
+		xmlhttp.onreadystatechange=showCalcRes;
+		xmlhttp.open("POST","ajaxroutines.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function showCalcRes()
+	{
+//		alert(xmlhttp.readyState)
+		if(xmlhttp.readyState==4)
+		{
+		
+	//		alert(xmlhttp.responseText);
+			arr = xmlhttp.responseText.split(",");
+			document.getElementById("t"+p_r+"1").value=arr[0];
+			document.getElementById("t"+p_r+"2").value=arr[1];
+			document.getElementById("t"+p_r+"3").value=arr[2];
+			
+//			alert(xmlhttp.responseText);
+		}
+	}
+	
+	function editRec(i)
+	{
+		window.parent.vsrno=document.getElementById("empno"+i).innerHTML
+	//	alert(window.parent.vsrno);		
+		window.parent.document.getElementById("call").src="entry1.php"
+	}
+	function yrmonChange()
+	{
+		month_yr_change=true;
+	}
+
+</script>
+</head>
+<body bgcolor="#Ece9de">
+<table width="780" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="6" valign="top">
+    <div style="float:left">
+    Year :<input type="text" size="6" id="syr" onchange="yrmonChange()" />
+    Month :
+    <select name="month" id="smonth" onchange="yrmonChange()">
+        <option selected="selected">Select</option>
+        <option value="Mar">Mar</option>
+        <option value="Apr">Apr</option>
+        <option value="May">May</option>
+        <option value="Jun">Jun</option>
+        <option value="Jul">Jul</option>
+        <option value="Aug">Aug</option>
+        <option value="Sep">Sep</option>
+        <option value="Oct">Oct</option>
+        <option value="Nov">Nov</option>
+        <option value="Dec">Dec</option>
+        <option value="Jan">Jan</option>
+        <option value="Feb">Feb</option>
+        <option value="Ar1">Arr.1</option>
+        <option value="Ar2">Arr.2</option>
+        <option value="Ar2">Arr.3</option>
+	</select>
+    <input type="button" value="  Show  " class="btn_color" id="show" name="show" onclick="showdata(0)"/>
+    <input type="button" value="  Post  " class=    "btn_color" id="post" onclick="saveData()" />     
+    <input type="button" value="  UpdateMaster  " class="btn_color" id="upd_mas" name="upd_mas" onclick="updtMast()" />
+    <input type="button" value=" Remove Data " class="btn_color" id="rem_data" name="rem_data" onclick="remData()"/>
+    <input type="text" id="snam" size="10"  /><input type="button" value="Find" onclick="showdata(1)" />
+<!--
+    <input type="button" value="  Edit  " class="btn_color" id="edit" onclick="editRec()" />
+    <input type="button" value="  Exit  " class="btn_color" id="exit" name="exit"  /> -->
+    </div></td></tr>
+  <tr>
+    <td colspan="6"></td>
+  </tr>
+  <tr style=" min-height:10px; height:10px;" ><td colspan="8" bgcolor="e5e1d0"></td></tr>
+    <tr ><td colspan="8" bgcolor="e5e1d0">
+    <div id="dtls"></div></td></tr>
+    <tr><td colspan="8" align="center" width="200px" height="50px">
+    
+    <input type="button" value="<<" id="prev" onclick="prevpg()" />
+    <input type="text" size="6" value="1" id="pgno" onchange="chkpgno()" />
+    <input type="button" value=">>" id="next" onclick="nextpg()" /> 
+    </td>
+  </tr>
+
+</table>
+<script type="text/javascript">
+showdata(0);
+</script>
+</body>
+</html>

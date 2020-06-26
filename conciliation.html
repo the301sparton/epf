@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Conciliation Statement</title>
+<script type="text/javascript">
+function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+function showRepo()
+{
+	if(xmlhttp.readyState==4)
+	{
+		st=xmlhttp.responseText;
+//		alert(st);
+		arr2=st.split("#");
+		tst=""
+		arr1 = arr2[0].split("|");
+		arr=arr1[0].split("~");
+//		alert(arr1[0]);
+		document.getElementById("coname").innerHTML=arr[3];
+		document.getElementById("coname1").innerHTML="For "+arr[3];
+//			document.getElementById("addr").innerHTML=arr[2];
+		document.getElementById("epfno").innerHTML="Code No. : "+arr[0];
+		document.getElementById("fyyear").innerHTML="Fy.Year : "+arr[2]+"-"+(parseInt(arr[2])+1);
+		document.getElementById("epfrate").innerHTML="E.P.F. Rate: "+arr[1]+"%";
+		
+//		     alert(arr[0]);	
+		tot1 = Array(8);
+		tot2 = Array(8);
+		for(j=0;j<8;j++)
+		{
+			tot1[j]=0;tot2[j]=0;
+		}
+//			tac1=0;tac10=0;tac2=0;tac21=0;tac22=0;twages=0
+		for(i=1;i<arr1.length;i++)
+		{
+			arr=arr1[i].split("~");
+			n = arr[0];
+			for(j=1;j<arr.length;j++)
+			{
+				if(n<10)
+					{ vid = ("c0"+n)+(j<10?"0"+j:j);}
+				else
+					{ vid = ("c"+n)+(j<10?"0"+j:j); }
+				document.getElementById(vid).innerHTML=arr[j];
+				tot1[j]=tot1[j]+parseInt(arr[j]);
+			}
+		}
+//		alert(arr2[1]);
+		arr1=arr2[1].split("|");
+		for(i=0;i<arr1.length;i++)
+		{
+			arr=arr1[i].split("~");
+			n=arr[0];
+//			alert(n);alert(arr.length);
+			for(j=1;j<arr.length;j++)
+			{
+				if(n<10)
+					{ vid = ("c0"+n)+((j+7<10?"0"+(j+7):(j+7)));}
+				else
+					{ vid = ("c"+n)+((j+7<10?"0"+(j+7):(j+7))); }
+//				alert(vid);
+				document.getElementById(vid).innerHTML=arr[j];
+				if(j<7)
+					tot2[j]=tot2[j]+parseInt(arr[j]);
+			}
+		}
+//		return;
+		for(j=1;j<=7;j++)
+		{
+			vid ="c16"+(j<10?"0"+j:j);
+			document.getElementById(vid).innerHTML=tot1[j];
+		}
+		for(j=1;j<=6;j++)
+		{
+			vid ="c16"+((j+7<10?"0"+(j+7):(j+7)));
+			document.getElementById(vid).innerHTML=tot2[j];
+		}
+		for(j=1;j<=5;j++)
+		{
+			vid1="c17"+((j<10?"0"+(j+2):(j+2)));vid2="c17"+((j+7<10?"0"+(j+7):(j+7)));
+			document.getElementById(vid1).innerHTML=tot1[j+2]-tot2[j];
+			document.getElementById(vid2).innerHTML=tot2[j]-tot1[j+2];
+		}
+	}
+}			
+</script>
+</head>
+
+<body>
+<table width="970px" border="1" cellpadding=0 cellspacing=0 style='table-layout:fixed; font-size:smaller;'>
+<tr height="20px" ><td colspan="15" style=" text-align:center; font-size:16; font-weight:bold;">Reconciliation Statement</td></tr>
+<tr height="20px" ><td colspan="15" style=" text-align:center; font-size:14; font-weight:bold;" id="coname"></td></tr>
+<tr height="20px" ><td colspan="5" style=" text-align:center; font-size:14; font-weight:bold;" id="epfno">Co.Code</td>
+<td colspan="5" style=" text-align:center; font-size:14; font-weight:bold;" id="fyyear"></td>
+<td colspan="5" style=" text-align:center; font-size:14; font-weight:bold;" id="epfrate"></td></tr>
+<tr height="20px"><td colspan="8" align="center">Amount Due</td>
+<td colspan="7" align="center">Amount Paid</td></tr>
+<tr><td>Month</td><td>No.Emp.</td><td>Wages</td><td>A/c No.1</td><td>A/c No.10</td><td>A/c No.2</td><td>A/c No.21</td><td>A/c No.22</td><td>A/c No.1</td><td>A/c No.10</td><td>A/c No.2</td><td>A/c No.21</td><td>A/c No.22</td><td>Total</td><td>PayDate</td></tr>
+<script type="text/javascript">
+	arrmon=new Array("Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Ar1","Ar2","Ar3","Total","Difference");
+	var st;
+	st=""
+	for(i=1;i<=17;i++)
+	{
+		st=st+"<tr><td>"+arrmon[i-1]+"</td>";
+		for(j=1;j<=14;j++)
+		{
+			if(i<10)
+				vid = ("c0"+i)+(j<10?"0"+j:j);
+			else
+				vid = ("c"+i)+(j<10?"0"+j:j);
+			st=st+"<td align='right' id="+vid+"></td>"
+		}
+		st=st+"</tr>"
+	}
+	
+	st=st+"<tr height='60px'><td colspan='15' style=' vertical-align:bottom; text-align:right; padding-right:80px;'><p id='coname1'></p><br/>Authorised Signatury</td></tr>"
+	document.write(st);
+</script>
+</table>
+
+<!--<td id="c11"></td><td id="c12"></td><td id="c13"></td><td id="c14"></td><td id="c14"></td>
+<td id="c16"></td><td id="c17"></td><td id="c1"></td><td id="c11"></td><td id="c11"></td><td id="c11"></td>-->
+<script type="text/javascript">
+	vfyyr=window.parent.fyyr;
+	var xmlhttp;
+	var p_r=0;
+	getxmlhttp();
+	temp="&fyyr="+vfyyr
+	temp = "n="+Math.random()+temp+"&vcnt=6"
+//		alert(temp);
+	xmlhttp.onreadystatechange=showRepo;
+	xmlhttp.open("POST","repoajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+</script>
+
+
+</body>
+</html>

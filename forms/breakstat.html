@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Break Statement</title>
+<style>
+.txt { width:300px;height:20px; border:hidden; background-color:#FAFAFF}
+.txt1 { width:100px;height:20px; border:hidden; background-color:#FAFAFF}
+.txt2 { width:35px;height:20px; border:hidden; background-color:#FAFAFF}
+.td1 { padding-left:10px;}
+</style>
+</head>
+<body>
+<table border="1" width="700px" cellpadding="0" cellspacing="0">
+  <col width="10%" />
+  <col width="45%" />
+  <col width="45%" />
+  <tr height="28"><td colspan="3" height="29" align="center"><h2>BREAK STATEMENT</h2></td></tr>
+  <tr height="28">
+  	<td>1.</td>
+    <td  height="20px" class="td1">Name and address of the establishment</td>
+    <td ><input type="text" class="txt" id="cname" /></td>
+  </tr>
+  <tr height="20px">
+  	<td>2.</td>
+    <td  height="20px" class="td1">Name of the Employee </td>
+    <td  ><input type="text" class="txt" id="sname" /></td>
+  </tr>
+  <tr height="20px">
+  	<td>3.</td>
+    <td height="20px" class="td1">Account of the Employee</td>
+    <td ><input type="text" class="txt" id="epfno" /></td>
+  </tr>
+  <tr height="20px">
+  	<td>4.</td>
+    <td  height="20px" class="td1">Date of joining</td>
+    <td ><input type="text" class="txt" id="jdate_epf" /></td>
+  </tr>
+  <tr height="20px">
+  	<td>5.</td>
+    <td  height="20px" class="td1">Date of leaving/Death</td>
+    <td ><input type="text" class="txt" id="l_date" /></td>
+  </tr>
+  <tr height="20px"><td colspan="3" height="20">&nbsp;</td></tr>
+  <tr height="20px"><td colspan="3">
+  <table border="1" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="15px" width="10%" align="center" >S.N.</td>
+        <td width="19%" align="center"  >Year</td>
+        <td width="19%" align="center" >Total Breaks</td>
+        <td height="15px" align="center" width="10%" >S.N.</td>
+        <td width="19%" align="center" >Year</td>
+        <td width="23%" align="center" >Total Breaks</td>
+	  </tr>
+      <script type="text/javascript">
+	  	for(i=1;i<21;i++)
+		{
+		st='<tr><td height="20px" align="center" >'+ i + '</td>'
+		st=st+'<td height="20px" align="center" ><input type="text" id="t1_'+i+'" class="txt1"/></td>'
+		st=st+'<td height="20px" align="center" ><input type="text" id="t2_'+i+'" value=" " class="txt1"/></td>'
+		st=st+'<td height="20px" align="center" >'+(i+19)+'</td>'
+		st=st+'<td height="20px" align="center" ><input type="text" id="t1_'+(i+19)+'" class="txt1"/></td>'
+		st=st+'<td height="20px" align="center" ><input type="text" id="t2_'+(i+19)+'" value=" " class="txt1"/></td></tr>'
+		document.write(st);
+		}
+		</script>
+        <tr>
+        <td height="15px" width="10%" align="center" ></td>
+        <td width="19%" align="center"  ></td>
+        <td width="19%" align="center" ></td>
+        <td height="15px" align="center" width="10%" ><b>Total</b></td>
+        <td width="19%" align="center" ></td>
+        <td width="23%" align="center" ><input type="text" class="txt1"/></td>
+		</tr>
+        <tr>
+        <td height="20px" colspan="5" style="text-align:right; padding-right:30px;" ></td>
+        <td width="23%" align="center" >
+        	<input type="text" class="txt2" value="Y"/>
+            <input type="text" class="txt2" value="M"/>
+            <input type="text" class="txt2" value="D"/>
+         </td></tr>
+        <td height="15px" colspan="5" style="text-align:right; padding-right:30px;" >Total Service</td>
+        <td width="23%" align="center" >
+        	<input type="text" id='y1' class="txt2" />
+            <input type="text" id ='m1' class="txt2" />
+            <input type="text" id ='d1' class="txt2" />
+         </td></tr>
+        <td height="15px" colspan="5" style="text-align:right; padding-right:30px;" >Total Breaks in Service</td>
+        <td width="23%" align="center" >
+        	<input type="text" value="0" class="txt2" />
+            <input type="text" value="0" class="txt2" />
+            <input type="text" value="0" class="txt2" />
+         </td></tr>
+        <td height="15px" colspan="5" style="text-align:right; padding-right:30px;" >Total reckonable Service</td>
+        <td width="23%" align="center" >
+        	<input type="text" id='y2' class="txt2" />
+            <input type="text" id ='m2' class="txt2" />
+            <input type="text" id ='d2' class="txt2" />
+         </td></tr>
+  </table>
+  <tr><td colspan="3">Break- Only the absentee period for which wages have not been paid </td></tr> 
+  <tr><td colspan="3" height="40px">&nbsp;</td></tr>
+  <tr><td colspan="3" style="text-align:right; padding-right:100px;"><input type="text"  id='cname1' size="50" align="right" /></td></tr> 
+  <tr><td colspan="3" style="text-align:right; padding-right:100px;"><span>&nbsp;</span></td></tr> 
+  <tr><td colspan="3" style="text-align:right; padding-right:100px;">Authorised Signatory</td></tr> 
+</table>
+</body>
+</html>

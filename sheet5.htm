@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.maintd {padding-top:0; padding-left:0; padding-bottom:0; padding-right:0; vertical-align:top;}
+.head { text-align:center;font-weight:bold; }
+td { font-size:small;text-align:right; padding-right:0px; vertical-align:middle; overflow:auto;}
+.btd {font-size:10px; }
+.td1 { border:#000000 thin solid;; padding-left:5px; text-align:left; }
+.td2 {padding-left:5px; text-align:left;}
+.btr {font-size:8px; }
+.ctd {text-align: center;  vertical-align:middle; }
+.rtd {text-align: right; padding-right:5px; vertical-align:middle; overflow:auto;}
+.ftd {}
+.ltd {}
+table { width:100%;}
+</style>
+
+<script src="js/numToword.js" language="javascript"></script>
+<script type="text/javascript">
+function getxmlhttp()
+{
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	}
+	else  
+	{
+	// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+	}
+}
+//mon="Mar";yr="2010";fyyr="2010"
+function gettot()
+{
+	vctot=Array(0,0,0,0);
+	vrtot=Array(0,0,0,0,0,0);
+//	alert("A")
+	vsh1=document.getElementById("tsh1").innerHTML
+	vsh2=document.getElementById("tsh2").innerHTML
+	vch2=document.getElementById("ch2").innerHTML
+	vch3=document.getElementById("ch3").innerHTML
+	vch1=document.getElementById("ch1").innerHTML
+	vpen=document.getElementById("tpen").innerHTML
+
+	for(i=1;i<=3;i++)
+	{
+		for(j=1;j<=5;j++)
+		{
+			if(!isNaN(parseInt(document.getElementById(("tbl"+i)+j).value)))
+			{
+//				alert(document.getElementById(("tbl"+i)+j).value)
+				vctot[i]=vctot[i]+parseInt(document.getElementById(("tbl"+i)+j).value);
+				vrtot[j]=vrtot[j]+parseInt(document.getElementById(("tbl"+i)+j).value);	
+			}
+		}
+	}
+	document.getElementById("ctot4").innerHTML=vctot[1]
+	document.getElementById("ctot5").innerHTML=vctot[2]
+	document.getElementById("ctot6").innerHTML=vctot[3]
+	document.getElementById("rtot1").innerHTML=vrtot[1]+parseInt(vsh1)+parseInt(vsh2);
+	document.getElementById("rtot2").innerHTML=vrtot[2]+parseInt(vch2);
+	document.getElementById("rtot3").innerHTML=vrtot[3]+parseInt(vpen);
+	document.getElementById("rtot4").innerHTML=vrtot[4]+parseInt(vch1);
+	document.getElementById("rtot5").innerHTML=vrtot[5]+parseInt(vch3);
+	document.getElementById("gtot").innerHTML=vctot[1]+vctot[2]+vctot[3]+parseInt(document.getElementById("ctot1").innerHTML)+parseInt(document.getElementById("ctot2").innerHTML)+parseInt(document.getElementById("ctot3").innerHTML)
+	document.getElementById("amtword").innerHTML=inwords(document.getElementById("gtot").innerHTML);
+
+}
+function showRepo()
+{
+	if(xmlhttp.readyState==4)
+	{
+		st=xmlhttp.responseText;
+//		alert(st);
+		if(st=="-") return;
+		arr=st.split("~");
+//		alert(st);
+		vwages=isNaN(parseInt(arr[3]))?0:parseInt(arr[3]);
+		vch1= Math.round(vwages*0.005,0);
+		v1 = Math.round(vwages*0.011,0);
+		v2 = Math.round(vwages*0.0001,0);
+		vch2=(v1<5?5:v1);vch3=(v2<2?2:v2);
+		vtsh1=isNaN(parseInt(arr[5]))?0:parseInt(arr[5]);		
+		vtsh2=isNaN(parseInt(arr[6]))?0:parseInt(arr[6]);		
+		vtpen=isNaN(parseInt(arr[7]))?0:parseInt(arr[7]);		
+		yr=(vmon=="Jan"||vmon=="Feb")?vfyyr+1:vfyyr;
+		document.getElementById("cname").innerHTML=arr[0];
+		document.getElementById("caddr").innerHTML=arr[1];
+		document.getElementById("cpfno").innerHTML=(arr[2]==null?" ":arr[2]);
+		document.getElementById("monyr").innerHTML=vmon+"-"+yr;
+//		document.getElementById("fperiod").innerHTML="01 Apr."+vfyyr+" to 31 Mar."+parseInt(vfyyr)+1;
+//		alert("b");
+		document.getElementById("twages").innerHTML=arr[3];
+		document.getElementById("tpwages").innerHTML=arr[4];
+		document.getElementById("nemp").innerHTML=arr[8];
+		document.getElementById("nemppen").innerHTML=arr[9];
+		document.getElementById("twages21").innerHTML=arr[3];
+		document.getElementById("nemp21").innerHTML=arr[8];
+		document.getElementById("tsh1").innerHTML=vtsh1;
+		document.getElementById("tsh2").innerHTML=vtsh2;
+		document.getElementById("tpen").innerHTML=vtpen;
+		document.getElementById("ch1").innerHTML=vch1;
+		document.getElementById("ch2").innerHTML=vch2;
+		document.getElementById("ch3").innerHTML=vch3;
+		document.getElementById("ctot1").innerHTML=(vtsh2+vtpen+vch1);
+		document.getElementById("ctot2").innerHTML=(vtsh1);
+		document.getElementById("ctot3").innerHTML=(vch2+vch3);
+//		alert("A");
+
+		document.getElementById("rtot1").innerHTML=(vtsh2+vtsh1);
+		document.getElementById("rtot2").innerHTML=(vch2);
+		document.getElementById("rtot3").innerHTML=(vtpen);
+		document.getElementById("rtot4").innerHTML=(vch1);
+		document.getElementById("rtot5").innerHTML=(vch3);
+		document.getElementById("gtot").innerHTML=(vtsh1+vtsh2+vtpen+vch1+vch2+vch3)
+		document.getElementById("amtword").innerHTML=inwords(document.getElementById("gtot").innerHTML);
+	}	
+}
+</script>
+</head>
+<body>
+<div style="border:#000000 thin solid;width:950px; height:670px">
+<table width="100%" height="670px" cellpadding="0" cellspacing="0" > 
+<tr><td width="100%" class="maintd" >
+	<table width="100%"  cellpadding="0" cellspacing="0">
+        <tr><td bordercolor="#000000"  colspan="16" class='head' style="border:#000000 thin solid;font-size:large">COMBINED  CHALLAN OF A/C NO. 1, 2, 10, 21 &amp; 22</td></tr>
+        <tr><td colspan="16" class='head' style="font-size:medium">(STATE BANK OF INDIA)</td></tr>
+        <tr><td colspan="16" class='head' style="font-size:large">EMPLOYEES' PROVIDENT FUND ORGANISATION</td></tr>  
+        <tr><td colspan="16" class="btd">.</td>
+        </tr>
+    </table>
+</td></tr>
+<tr><td width="100%" >
+	<table width="100%"  cellpadding="0" cellspacing="0">
+        <tr>
+        <td class="ftd" style="padding-right:5px" >Establishment Code No.</td>
+        <td  class="td1" width="13%" id="cpfno">&nbsp;</td>
+        <td width="5%">&nbsp;</td><td style="padding-right:5px" >Accounting Group No.</td>
+        <td width="13%" id="a2" class="td1" >&nbsp;</td><td width="5%">&nbsp;</td>
+        <td style="padding-right:5px" >Paid by Cheque/Cash</td><td width="13%" class="td1">&nbsp;</td>
+        <td width="5%" class="ltd">&nbsp;</td>
+        </tr>
+    </table>
+</td></tr>
+<tr><td width="100%" class="btd" >.</td>
+<tr><td width="100%">
+	<table width="100%"  cellpadding="0" cellspacing="0">
+        <tr><td class="ftd" rowspan="2" width="10%">&nbsp;</td>
+        <td rowspan="2" class="td1" style="border-left:#000000 thin solid; text-align:center;padding-right:5px;">
+        Dues For the Month Of</td>
+        <td style="padding-right:5px" >Employees Share</td>
+        <td width="13%" rowspan="2" class="td1" id="monyr">&nbsp;</td>
+        <td rowspan="2" width="13%">&nbsp;</td>
+        <td rowspan="2" style="padding-right:5px" >Date of Payment</td>
+        <td  rowspan="2" width="13%" class="td1" id="pdt">&nbsp;</td>
+        <td rowspan="2" class="ltd" width="5%" >&nbsp;</td>
+        </tr>
+        <tr><td style="padding-right:5px" >Employer Share</td>
+        </tr>
+	</table>
+</td></tr>   
+<tr ><td width="100%" class="btd">.</td></tr>
+<tr><td width="100%">
+	<table width="100%">
+        <tr><td rowspan="2" width="5%">&nbsp;</td>
+        <td rowspan="2" align="right" width="15%" >Total wages due</td>
+        	<td rowspan="2" width="5%">&nbsp;</td>
+        	<td rowspan="2" width="5%" style="padding-right:5px">A/c 1</td>
+            <td class="td1" width="13%" id="nemp">&nbsp;</td>
+            <td width="5%" rowspan="2">&nbsp;</td>
+            <td rowspan="2" width="5%" style="padding-right:5px" >A/c 10</td>
+            <td class="td1" width="13%" id="nemppen">&nbsp;</td>
+            <td width="5%" rowspan="2">&nbsp;</td>
+            <td rowspan="2" width="5%" style="padding-right:5px" >A/c 21</td>
+            <td  class="td1" width="13%" id="nemp21">&nbsp;</td>
+            <td width="5%" rowspan="2" >&nbsp;</td>
+        </tr>
+        <tr><td  class="td1" id="twages">&nbsp;</td>
+            <td  class="td1" id="tpwages">&nbsp;</td>
+            <td  class="td1" id="twages21">&nbsp;</td>
+        </tr>
+	</table>
+</td></tr>
+<tr><td class="btd">.</td></tr>
+<tr><td width="100%">
+	<table width="100%" cellpadding="0" cellspacing="0" border="1" style="border=#000000 thin solid;" >
+    <tr><td class="rtd" width="7%">S.N.</td>
+    	<td width="21%" class="ctd">Particulars</td>
+    	<td width="12%" class="ctd">A/c No.1</td>
+    	<td width="12%" class="ctd">A/c No.2</td>
+    	<td width="12%" class="ctd">A/c No.10</td>
+    	<td width="12%" class="ctd">A/c No.21</td>
+    	<td width="12%" class="ctd">A/c No.22</td>
+    	<td width="12%" class="ctd">Total</td>
+    </tr>
+	<tr>     
+		<td class="ctd">1</td>
+    	<td width="21%" class="ctd">Employer's Share of Cont.</td>
+    	<td width="12%" class="rtd" id="tsh2">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a13">&nbsp; </td>
+    	<td width="12%" class="rtd" id="tpen">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ch1">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a16">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot1">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd">2</td>
+    	<td width="21%" class="ctd">Employee's Share of Cont.</td>
+    	<td width="12%" class="rtd" id="tsh1">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a19">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a20">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a21">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a22">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot2">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd">3</td>
+    	<td width="21%" class="ctd">Adm. Charges</td>
+    	<td width="12%" class="rtd" id="a24">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ch2">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a26">&nbsp; </td>
+    	<td width="12%" class="rtd" id="a27">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ch3">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot3">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd">4</td>
+    	<td width="21%" class="ctd">Insp. Charges</td>
+    	<td width="12%" class="rtd" id="td11">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td12">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td13">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td14">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td15">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot4">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd">5</td>
+    	<td width="21%" class="ctd">Penal Damages</td>
+    	<td width="12%" class="rtd" id="td21">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td22">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td23">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td24">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td25">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot5">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd">6</td>
+    	<td width="21%" class="ctd">Misc Payment</td>
+    	<td width="12%" class="rtd" id="td31">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td32">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td33">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td34">&nbsp; </td>
+    	<td width="12%" class="rtd" id="td35">&nbsp; </td>
+    	<td width="12%" class="rtd" id="ctot6">&nbsp; </td>
+	</tr>    
+	<tr>     
+		<td class="ctd" colspan="2">Total</td>
+    	<td width="12%" class="rtd" id="rtot1">&nbsp; </td>
+    	<td width="12%" class="rtd" id="rtot2">&nbsp; </td>
+    	<td width="12%" class="rtd" id="rtot3">&nbsp; </td>
+    	<td width="12%" class="rtd" id="rtot4">&nbsp; </td>
+    	<td width="12%" class="rtd" id="rtot5">&nbsp; </td>
+    	<td width="12%" class="rtd" id="gtot">&nbsp; </td>
+	</tr>    
+    </table>
+    </td></tr>
+    <tr><td width="100%" class="btd">.</td></tr>
+    <tr><td width="100%">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr><td width="8%" class="ftd" >&nbsp;</td>
+            <td width="15%" style="padding-right:5px" >Amount in Words</td>
+            <td  width="75%" class="ltd"  style="border-bottom:#000000 thin solid; text-align:left" id="amtword">&nbsp;</td>
+         </tr>
+     </table>
+</td></tr>
+    <tr><td width="100%">
+    	<table width="100%" cellpadding="0" cellspacing="0" >
+        <tr>
+        	<td class="ftd" style="width:20%">&nbsp;</td><td style="width:15%"></td>
+            <td style="width:15%">&nbsp;</td><td style="width:15%">&nbsp;</td>
+	        <td style="width:18%" >(For Bank use only)</td>
+            <td style="width:17%"  >&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="ftd" style="padding-right:5px">Name of Establishment</td>
+            <td colspan="3" class="td2" id="cname">&nbsp;</td>
+            <td>Amount Received Rs.</td>
+            <td  class="ltd">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="ftd" style="padding-right:5px">Address</td>
+            <td colspan="3" class="td2" id="caddr">&nbsp;</td>
+            <td style="padding-right:5px">For cheques only</td>
+            <td  class="ltd">&nbsp;</td>
+        </tr>
+        <tr>
+	        <td colspan="4" class="ftd">&nbsp;</td><td >Date of Presentation</td><td class="ltd">&nbsp;</td>
+        </tr>
+        <tr>
+    	    <td colspan="4" class="ftd">&nbsp;</td><td  >Date of Realisation</td><td class="ltd">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="ftd">Name of Depositor</td>
+            <td class="td2" colspan="3">&nbsp;</td>
+            <td>Branch Name</td>
+            <td  class="ltd">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="ftd">Signature of Depositor</td>
+            <td colspan="3" class="ctd" style="font-weight:bold;">To be filled in by the Depositor</td>
+            <td>Branch Code No.</td>
+            <td  class="ltd">&nbsp;</td>
+        </tr>
+        <tr><td colspan="6" class="btd">&nbsp;</td></tr>
+        <tr><td class="ftd" style="padding-right:5px" >Name of Bank</td>
+            <td id="td41" class="td1">&nbsp;</td>
+            <td style="padding-right:5px" >Cheque No.</td>
+            <td id="td42" class="td1">&nbsp;</td>
+            <td style="padding-right:5px" >Date</td>
+            <td id="td43"class="td1" >&nbsp;</td>
+        </tr>
+        <tr><td colspan="6" >&nbsp;</td></tr>
+     </table>
+     </td></tr>
+</table>
+</div>
+<script type="text/javascript">
+	vmon=window.parent.mon;
+	vfyyr=window.parent.fyyr;
+	var xmlhttp;
+	var p_r=0;
+	getxmlhttp();
+	temp="&mon="+vmon+"&fyyr="+vfyyr
+	temp = "n="+Math.random()+temp+"&vcnt=5"
+//		alert(temp);
+	xmlhttp.onreadystatechange=showRepo;
+	xmlhttp.open("POST","repoajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+</script>
+</body>
+</html>

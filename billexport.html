@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <script type="text/javascript">
+         	var xmlhttp;
+        	function getxmlhttp()
+        	{
+        		if (window.XMLHttpRequest)
+        		{// code for IE7+, Firefox, Chrome, Opera, Safari
+        		 xmlhttp=new XMLHttpRequest();
+        		}
+        		else
+        		{
+        		// code for IE6, IE5
+        		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        		}
+        	}
+        	function exportbills()
+            {
+            	getxmlhttp();
+            	vsdt=document.getElementById("sdt").value;
+            	vedt=document.getElementById("edt").value;
+                temp="&sdt="+vsdt+"&edt="+vedt;
+                
+            	temp = "n="+Math.random()+temp+"&vcnt=91"
+
+//		alert(temp);
+
+        	xmlhttp.onreadystatechange=showresult;
+
+     	xmlhttp.open("POST","repoajax.php",true);
+	    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    xmlhttp.send(temp); 
+
+            }
+            function showresult()
+            {
+            	if(xmlhttp.readyState==4)
+                {
+
+    	        	if(xmlhttp.responseText==-1)
+
+		            {	alert("Failed to export");}
+            		else
+
+            		{			
+
+                		fname = xmlhttp.responseText;
+
+            		st = "<a href='download.php'>Download it</a>";
+
+            		document.write(st);
+            	    
+            	  }
+
+            }
+        }
+            
+        </script>
+    </head>
+    <body>
+        <table border="0">
+            <tr>
+        <td>Starting Date :</td>
+        <td><input type="text" name="sdt" id="sdt" /> </td>
+        </tr>
+        <tr>
+        <td>Ending Date :</td>
+        <td><input type="text" name="edt" id="edt" /></td>
+        </tr>
+        <tr><td></td>
+        <td><input type="button" value="export" onclick="exportbills()" /></td>
+        </tr>
+        </table>
+    </body>
+</html>

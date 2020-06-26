@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/css1.css" />
+
+<script type="text/javascript">
+	var xmlhttp;
+	var vcono;
+	function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+	function chkpgno()
+	{
+		vpgno=document.getElementById("pgno").value
+		if(vpgno<0) vpgno=1
+		if(vpgno>1)
+		{
+			vpgno--;
+			document.getElementById("pgno").value=vpgno;
+			showlist();
+		}
+	}
+	
+	function prevpg()
+	{
+		vpgno=document.getElementById("pgno").value
+		if(vpgno>1)
+		{
+			vpgno--;
+			document.getElementById("pgno").value=vpgno;
+			showlist();
+		}
+	}
+	function nextpg()
+	{
+		ros=document.getElementById("dlist").rows
+		if(ros.length>=10)
+		{
+			vpgno=document.getElementById("pgno").value
+			vpgno++;
+			document.getElementById("pgno").value=vpgno;
+			showlist();
+		}	
+	} 
+function editco(i)
+{
+	window.parent.fcono=parseInt(document.getElementById('c'+i+'0').innerHTML)
+//	alert(window.parent.fcono)
+	window.parent.document.getElementById("call").src="masterform.html"
+}
+function getbill(i)
+{
+	window.parent.fcono=parseInt(document.getElementById('c'+i+'0').innerHTML)
+	window.parent.fcnam=document.getElementById('c'+i+'1').innerHTML
+	window.parent.document.getElementById("call").src="billing.html"
+}
+function delco(i)
+{
+	if(confirm("Delete Co.?")==true)
+	{
+		vcono=parseInt(document.getElementById('c'+i+'0').innerHTML);
+		
+		document.getElementById("deldialog").style.visibility="visible";
+		document.getElementById("tdpwd").value="";
+		document.getElementById("tdpwd").focus();	
+	}	
+//	alert(window.parent.fcono)
+//	window.parent.document.getElementById("call").src="masterform.html"
+}
+function delco1()
+{
+//	alert("A");
+	getxmlhttp();
+	temp="&cono="+vcono+"&pwd="+document.getElementById("tdpwd").value;
+	temp = "n="+Math.random()+temp+"&vcnt=5"
+//	alert(temp);
+	xmlhttp.onreadystatechange=chkdel;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+function chkdel()
+{
+	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		if(parseInt(xmlhttp.responseText)==-1)
+		{
+			alert("Failed to Delete Co.");
+		}
+		else
+		{		
+			showlist();   
+		}
+	}
+}
+function pwdco(i)
+{
+//	alert(i);
+	st="c"+i+"5"
+	alert(document.getElementById(st).innerHTML);
+}
+function editCodtl()
+{
+	if(xmlhttp.readyState==4)
+	{
+			
+	}
+}
+function openco(i)
+{
+	cono=parseInt(document.getElementById('c'+i+'0').innerHTML)
+	getxmlhttp();
+	temp = "n="+Math.random()+"&cono="+cono+"&vcnt=2"
+	xmlhttp.onreadystatechange=showCo;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}	
+function showCo()
+{
+	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		if(parseInt(xmlhttp.responseText)==0)
+		{
+			window.parent.location.href="form2.php"
+		}
+	}
+}
+
+function showlist()
+{
+	pg=document.getElementById("pgno").value
+	conam = document.getElementById("coname").value
+	if(conam==null) conam=" ";
+	getxmlhttp();
+	if(pgno==1)
+	{
+		recno=1
+	}
+	else
+	{
+		recno = (pg-1)*10+1
+	}
+	temp="&conam="+conam+"&recno="+recno
+	temp = "n="+Math.random()+temp+"&vcnt=1"
+//	alert(temp)
+	xmlhttp.onreadystatechange=showRec;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+
+function showRec()
+{
+	if(xmlhttp.readyState==4)
+	{
+		st=xmlhttp.responseText;
+//		alert(st);
+		arr=st.split("|");
+		st="<table id='dlist' border='0' cellpadding='5' cellspacing='0'>"
+		st=st+"<tr><th width='50' class='list_back'><div align='center' class='style1'>Co.No.</div></th>"
+		st=st+"<th width='313' class='list_back'><div align='center' class='style1'>Comp. Name</div></th>"
+		st=st+"<th width='100' class='list_back'> <div align='center' class='style1'>E.P.F. No.</div></th>"
+		st=st+"<th width='100' class='list_back'> <div align='center' class='style1'>ESIC No.</div></th>"
+		st=st+"<th width='60' class='list_back'> <div align='center' class='style1'>Open</div></th>"
+		st=st+"<th width='60' class='list_back'> <div align='center' class='style1'>edit</div></th>"
+		st=st+"<th width='60' class='list_back'> <div align='center' class='style1'>Pwd</div></th>"
+		st=st+"<th width='60' class='list_back' style='visibility:hidden' > <div align='center' class='style1' >Pwd</div></th></tr>"
+		
+		for(i=0;i<arr.length;i++)
+		{
+			row=arr[i].split("~")
+//				alert(row[0])
+			if(row[0]=="") continue;
+			st=st+"<tr style='background-color:#DDFFFF;min-height:30px;'>"
+			st=st+"<td align='right' id='c"+i+"0'>"+row[0]+"</td><td id='c"+i+"1' align='center' >"+row[1]+"</td>"
+			st=st+"<td id='c"+i+"2'>"+row[2]+"</td>"
+			st=st+"<td id='c"+i+"3'>"+row[3]+"</td>"
+			st=st+"<td id='c"+i+"4'><input type='button' value='Open' onclick='openco("+i+")'</td>"
+			st=st+"<td id='c"+i+"6'><input type='button' value='Edit' onclick='editco("+i+")'</td>"
+			st=st+"<td id='c"+i+"7' ><input type='button' value='Pwd' onclick='pwdco("+i+")'</td>"
+			st=st+"<td id='c"+i+"8' ><input type='button' value='Del' onclick='delco("+i+")'</td>"
+			st=st+"<td id='c"+i+"9' ><input type='button' value='Bill' onclick='getbill("+i+")'</td>"
+			st=st+"<td id='c"+i+"5' style='visibility:hidden'  >"+row[4]+"</td></tr>"
+			
+		}
+		st=st+"</table>"
+		document.getElementById("dtls").innerHTML=st		
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="deldialog" style="visibility:hidden; background-color:#FFFF00; color:#FF0000;">
+Enter Password:<input type="password" id='tdpwd' />
+<input type="button" value="Continue" onclick="delco1()" />
+</div>
+<table width="796" height="401" border="1">
+  <tr>
+    <td align="left" height="44">Company Name : 
+      <label>
+      <input name="coname" type="text" id="coname" size="60" onkeyup="showlist()" />
+    </label></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" height="309px">
+    <table width="635" border="0">
+    <tr><td align="left" valign="top" height="200px">
+    <div id="dtls"></div>
+</td>
+  </tr>
+  <tr >
+  
+    <td align="center">
+    <input type="button" value="<<" id="prev" onclick="prevpg()" />
+    <input type="text" size="6" value="1" id="pgno" onchange="chkpgno()" />
+    <input type="button" value=">>" id="next" onclick="nextpg()" /> 
+     </td> 
+  </tr>
+</table>
+<script type="text/javascript">
+//alert("test");
+showlist();
+</script>
+</body>
+
+</html>

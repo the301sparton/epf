@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dhawal Consultancy Welcomes you..Reports Section</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+<style type="text/css">
+<!--
+.style3 {color: #E5E1D0}
+.frm
+{color:#0066CC;
+padding:0;
+margin:0;
+text-indent:15px;
+min-height:25px;
+width:150px
+}
+.btn1
+{ background:#CCAAFF;
+  height:25px;
+  width:155px;
+  font-weight:700;
+  text-align:center;
+  vertical-align:middle;
+ }
+.btn
+{ background:#CCDDFF;
+  height:25px;
+  width:155px;
+  font-weight:700;
+  text-align:center;
+  vertical-align:middle;
+  
+ }
+
+.login1
+{background: url(images/common_st.jpg) no-repeat;
+padding:0; margin:5px 0 0 0; height:30px}
+-->
+</style>
+<script type="text/javascript">
+var cdt = new Date()
+var fyyr= cdt.getFullYear();
+var mon="   "
+function getmon()
+{
+	mon=document.getElementById("tmon").value
+}
+function getfyyr()
+{
+	fyr=parseInt(document.getElementById("tfyyr").value)
+	if(!isNaN(fyr))
+		fyyr=fyr
+//	alert(fyyr);
+}
+function showrepo(pn)
+{
+	n = parseInt(pn);
+	
+	switch(n)
+	{
+		case 1 :
+			document.getElementById("forms").src="sheet1.htm";break;
+		case 2 :
+			document.getElementById("forms").src="sheet2.htm";break;
+		case 4 :
+			document.getElementById("forms").src="sheet3.htm";break;
+		case 3 :
+			document.getElementById("forms").src="sheet5.htm";break;
+	}
+
+}
+function printit()
+{
+	window.frames("forms").focus();
+	window.frames("forms").print();
+}
+</script>
+</head>
+
+<body bgcolor="#205bc8">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td colspan="2" class="baner">&nbsp;</td>
+  </tr>
+  <tr><td colspan="2" align="center"></td></tr>
+  <tr><td colspan="2" align="right" >
+<iframe src="menu.php" width="900px" height="17px" frameborder="0" class="bck"  scrolling="no"></iframe></td>
+  </tr>
+  <tr><td colspan="2" align="center">
+  <iframe id="frm1" class="chpwd1" src="chpwd.html"></iframe></div></td></tr>
+
+  <tr bgcolor="#ece9de" >
+    <td width="194" valign="top"><table width="170px" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:5px 5px 5px 5px">
+      <tr>
+        <td><img src="images/top-login.png" width="170px" /></td>
+      </tr>
+      <tr>
+        <td class="logmiddle"><div style="margin:0 5px 0 5px; padding:0" >
+                      
+          <table width="160px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="92" height="29">Financial Year:</td>
+    <td width="88"><input type="text" id="tfyyr" size="6" maxlength="4" onchange="getfyyr()" /></td>
+  </tr>
+  <tr>
+    <td>Month:</td>
+    <td><select name="select" id="tmon" onchange="getmon()">
+      <option value="Jan" >Jan</option>
+      <option value="Feb">Feb</option>
+      <option value="Mar">Mar</option>
+      <option value="Apr">Apr</option>
+      <option value="May">May</option>
+      <option value="Jun">Jun</option>
+      <option value="Jul">Jul</option>
+      <option value="Aug">Aug</option>
+      <option value="Sep">Sep</option>
+      <option value="Oct">Oct</option>
+      <option value="Nov">Nov</option>
+      <option value="Dec">Dec</option>
+    </select></td>
+  </tr>
+</table>
+
+          <div style="margin:10px 5px 10px 5px; border-style:solid; border-width:1px; border-color:#999999; width:150px" >
+Select your choice          </div>
+       
+          <hr align="left" />
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" onmouseover="this.className='btn1'" onmouseout="this.className='btn'" onclick="showrepo(1)" value="Monlthly Report" /></div>
+          </div>
+         
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Form 12A" onmouseover="this.className='btn1'" onmouseout="this.className='btn'" onclick="showrepo(2)" /></div>
+          </div>
+          
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Chalan" onmouseover="this.className='btn1'" onmouseout="this.className='btn'"  onclick="showrepo(3)"  /></div>
+          </div>
+          
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Form 6A" onmouseover="this.className='btn1'" onmouseout="this.className='btn'"  onclick="showrepo(4)" /></div>
+          </div>
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Form 3A" onmouseover="this.className='btn1'" onmouseout="this.className='btn'" onclick="showrepo(5)" /></div>
+          </div>
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Form 9" onmouseover="this.className='btn1'" onmouseout="this.className='btn'"  onclick="showrepo(6)" /></div>
+          </div>
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Reconciliation" onmouseover="this.className='btn1'" onmouseout="this.className='btn'" onclick="showrepo(7)" /></div>
+          </div>
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Attendance" onmouseover="this.className='btn1'" onmouseout="this.className='btn'"  onclick="showrepo(8)" /></div>
+          </div>
+          <div class=" login1">
+          <div align="left" class="frm"><input type="button" class="btn" value="Yearwise Summary" onmouseover="this.className='btn1'" onmouseout="this.className='btn'" onclick="showrepo(9)" /> </div>
+          </div>
+       
+       </td>
+      </tr>
+      <tr>
+        <td><img src="images/btl-login.png" width="170px" /></td>
+      </tr>
+    </table></td>
+    <td  width="706" valign="top"><div style="border-style:solid; border-left-color:#CCCCCC;  border-width:1px; border-bottom:none; border-right:none; border-top:none; padding:0; margin:5px 10px 0 0">
+      <table width="680px" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 0 0 5px; ">
+        <tr>
+          <td ><img src="images/top.png" /></td>
+        </tr>
+        <tr>
+          <td class="middletd">
+          <div style="margin:0 20px 0 10px; padding:0; width:650px; height:500px;"  >
+            <iframe src="sampleRepo.html" name="forms" width="650px" height="500px" id="forms" allowtransparency="0" frameborder="0"></iframe>
+          <div style="left:0px; top:-500px; float:right; position:relative">
+	          <input type="button" value="Print" onclick="printit()" />
+          </div>
+          </div></td>
+        </tr>
+        <tr>
+          <td><img src="images/bottom.png" /></td>
+        </tr>
+      </table>
+    </div>
+    <br /></td><tr><td colspan="2" bgcolor="#205BC8"><p class="site_maint">Site maintain by Vaikuntha Computer's</p>    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+tmon.selectedIndex=cdt.getMonth();
+mon=tmon.value;
+//alert(mon)
+if(tmon.selectedIndex<2)
+	fyyr=fyyr-1;
+ document.getElementById("tfyyr").value=fyyr;
+// alert(document.getElementById("tmon").value);
+
+</script>
+
+</body>
+</html>

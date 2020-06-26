@@ -1,0 +1,475 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="attRegister_files/filelist.xml">
+<style id="attendance Register_10587_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.xl6310587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6410587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6510587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6610587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6710587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6810587
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+
+<script type="text/javascript">
+var xmlhttp;
+var mrows;
+function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+function changeBgColor(n,m) 
+{ 
+//	alert("A");
+     vid="d"+n;
+	 if(document.getElementById(vid).value=='8'){
+		document.getElementById(vid).style.background = (m==1) ? "lightgrey" : "white";
+	}
+	else {
+		document.getElementById(vid).style.background = (m==1) ? "cyan" : "red";
+	}
+		
+}
+function changeText(n,mrows,evt)
+{
+	
+     vid="d"+n;
+//	 alert(evt.charCode);
+	 ky = String.fromCharCode(evt.charCode);
+//	 alert(ky);
+	if(ky=="L" || ky=="l"|| ky=="A" || ky=="a" || ky=='h' || ky=='H'){
+		document.getElementById(vid).value=ky;
+		document.getElementById(vid).style.background="red";
+		if(ky=='H' || ky=='h')
+		{
+			c = (n)%38 ;
+			
+			for(r=0;r < mrows;r++)
+			{
+				vid = "d" + (c+r*38);
+				document.getElementById(vid).value = "H";
+				document.getElementById(vid).style.background="red";
+				
+			}
+			
+		}
+	 }
+	 if(ky=="8")
+	 {
+		document.getElementById(vid).value=ky;
+		document.getElementById(vid).style.background="lightgrey";
+	 }
+	 for(r=0;r < mrows;r++)
+	 {
+		nodays=0;
+		for(c=3;c < 34; c++)
+		{
+			vid = "d"+(r*38+c);
+			if(document.getElementById(vid).value=="8") {nodays++; }
+		}
+		vid = "d" + (r*38+34);
+	//	alert(nodays+","+vid);  
+		document.getElementById(vid).innerHTML = nodays;
+	 }
+	 
+}
+function calc(n)
+{
+//	alert(n);
+	vid1="d"+(n);vid2="d"+(n+1);vid3="d"+(n+3);vid4="d"+(n+4);
+	sal = val(document.getElementById(vid2).value);
+	epf=sal*0.12;esic=sal*0.025;
+	net = sal=epf-esic;
+	document.getElementById(vid2).innerHTML = epf.toFixed() ;
+	document.getElementById(vid3).innerHTML = esic.toFixed();
+	document.getElementById(vid4).innerHTML = net.toFixed();
+	
+}
+function showRepo()
+{
+//	alert(xmlhttp.readyState);  
+	if(xmlhttp.readyState==4)
+	{
+		var noemp;  
+		noemp=0; 
+		st=xmlhttp.responseText;
+	// 	alert(st);return; 
+		arrmain=st.split("#");
+		if(arrmain.length<2) {
+			alert("No data");return;
+		}
+		//		alert(arrmain[0]);
+		arr1 = arrmain[1].split("|");
+		vtbl = document.getElementById("tbl");
+	
+//		alert(arrmain[0]);alert(arrmain[1]);alert(arrmain[2]);
+		arr1=arrmain[1].split("|");
+		tst=""
+		vtbl = document.getElementById("tbl"); 
+		mrows = arr1.length
+		for(i=0;i<arr1.length;i++)
+		{
+	//		alert(arr1[i]);
+			arr=arr1[i].split("~");
+			
+			r=vtbl.insertRow(-1);
+			r.height="16px";
+			c=r.insertCell(0);c.className='xl6510587';c.innerHTML=i+1;
+			c=r.insertCell(1);c.className='xl6510587';c.innerHTML=arr[2];
+			c.id="d"+(i*38+1);
+			nodays=0;
+			for(j=1;j<=31;j++) {
+				c=r.insertCell(j+1);c.className='xl6510587';
+				n=i*38+j+2; 
+		//		alert(arrmain[0]);
+				if(arrmain[0]==1){
+				//	alert("A");
+					c.innerHTML='<input type="text" style="font-size:9;"  border="0" size="1"  id="d'+n+'"  onfocus="changeBgColor('+n+',1)" onblur="changeBgColor('+n+',2)" onkeypress="changeText('+n+','+arr1.length+',event)" value="'+arr[j+2]+'" readonly />';
+					if(arr[j+2]!="8"){
+						document.getElementById("d"+n).style.backgroundColor="red";}
+				} 
+				else { 
+					c.innerHTML='<input type="text" style="font-size:9;" border="0" size="1" id="d'+n+'"  onfocus="changeBgColor('+n+',1)" onblur="changeBgColor('+n+',2)" onkeypress="changeText('+n+','+arr1.length+',event)" value="8" readonly />';
+				}
+				vid = "d"+n;
+				if(document.getElementById(vid).value=="8") {nodays++;}
+				
+			}
+		//	alert(nodays);
+			vid="d"+(i*38+34);
+			c=r.insertCell(-1);c.className='xl6510587';c.innerHTML=nodays;
+			c.id=vid
+	//		alert(arrmain[0]);
+			c=r.insertCell(-1); c.className='xl6510587';
+			n=(i*38+35);
+			c.innerHTML='<input type="text" style="font-size:9; padding-left=0;padding-right:0; border:0;" size="5"  id="d'+n+'"  onfocus="changeBgColor('+n+',1)" onblur="changeBgColor('+n+',2);calc(n);" />';
+			/*			
+			if(arrmain[0]=='2'){
+				c.innerHTML=arr[3]*30; 
+			} else { 
+				c.innerHTML=arr[34];
+			} */
+			document.getElementById("d"+n).value=arr[34];
+			c=r.insertCell(-1);c.className='xl6510587';c.innerHTML=arr[35];
+				c.id=("d"+(i*38+36));
+			c=r.insertCell(-1);c.className='xl6510587';c.innerHTML=arr[36];
+				c.id=("d"+(i*38+37));
+			c=r.insertCell(-1);c.className='xl6510587';c.innerHTML="";
+				c.id=("d"+(i*38+38));
+			c=r.insertCell(-1);c.visible=false;c.id="d"+(i*38+2);c.innerHTML=arr[0];
+			
+		} 
+	}
+	
+}
+function noDays()
+{
+	fyyr=window.parent.fyyr;
+	mon = window.parent.mon;
+//	alert(mon);
+  st = "JanFebMarAprMayJunJulAugSepOctNovDec";
+  n=st.search(mon)%3+1;
+  if(n==0) return 0;
+  if(n==4||n==6||n==9||n==11){
+	return 30;
+  } else if(n==2) {
+	if((fyyr+1)%4==0) {
+		return 29;
+	} else 
+		return 28; }
+	else { return 31;}
+}
+  
+function saveAttendance()
+{
+//	alert("A"); 
+	fyyr=window.parent.fyyr;
+//	alert(fyyr);
+	mon = window.parent.mon;
+//	alert(mon);
+	days= noDays();
+	st="";
+//	alert(mrows);
+	for(i=0;i<mrows;i++){
+		if(i>0) st=st+"|";
+		for(j=1;j<3;j++){
+			st=st+document.getElementById("d"+(i*38+j)).innerHTML+"~";
+		}
+		for(j=3;j<36;j++) {
+			st=st+document.getElementById("d"+(i*38+j)).value+"~";
+		}
+		for(j=36;j<39;j++) {
+			st=st+document.getElementById("d"+(i*38+j)).innerHTML+((j<38)?"~":"");
+		}
+	}
+//	alert(st);
+//	return;
+	getxmlhttp(); 
+	temp="&fyyr="+vfyyr+"&mon="+vmon+"&datast="+st;
+	temp = "n="+Math.random()+temp+"&vcnt=81"
+//		alert(temp);
+	xmlhttp.onreadystatechange=showRes;
+	xmlhttp.open("POST","repoajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+function showRes()
+{	
+	if(xmlhttp.readyState==4){
+		st=xmlhttp.responseText; 
+//		document.getElementById("testresult").innerHTML=st;
+//		alert(st);
+//	alert("st:"+st);return;
+		alert("Data Saved"); 
+	}
+}
+function loadAttendance()
+{
+document.getElementById("uploaddiv").style.visibility = "visible";
+
+}
+function showImportData()
+{
+// alert("xx");
+	setTimeout(function(){showAttReport("temp3") ;},5000); 
+}
+function showAttReport(repotype)
+{
+//	alert(repotype);
+	vfyyr=window.parent.fyyr;
+	vmon = window.parent.mon;
+	var p_r=0;
+	getxmlhttp();
+	temp="&fyyr="+vfyyr+"&mon="+vmon+"&filtype="+repotype;
+	temp = "n="+Math.random()+temp+"&vcnt=8"
+//		alert(temp);
+	xmlhttp.onreadystatechange=showRepo;
+	xmlhttp.open("POST","repoajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+
+}
+</script>
+ 
+</head>
+<body>
+
+<div id="attendance Register_10587" align=center x:publishsource="Excel">
+<table id = "tbl" border=0 cellpadding=0 cellspacing=0 width=1200 class=xl6310587
+ style='border-collapse:collapse;table-layout:fixed;width:884pt'>
+ <col class=xl6310587 width=28 style='mso-width-source:userset;mso-width-alt:
+ 995;width:21pt'>
+ <col class=xl6310587 width=120 style='mso-width-source:userset;mso-width-alt:
+ 4266;width:90pt'>
+ <col class=xl6310587 width=22 span=31 style='mso-width-source:userset;
+ mso-width-alt:768;width:16pt'>
+ <col class=xl6310587 width=50 style='mso-width-source:userset;mso-width-alt:
+ 1763;width:37pt'>
+ <col class=xl6310587 width=64 span=5 style='width:48pt'>
+ <tr height=21 style='height:15.6pt'>
+  <td height=21 class=xl6310587 width=28 style='height:15.6pt;width:21pt'></td>
+  <td colspan=38 class=xl6710587 width=1172 style='width:863pt'>Co. Name</td>
+ </tr>
+ <tr height=36 style='mso-height-source:userset;height:27.0pt'>
+  <td colspan=2 height=36 class=xl6610587 style='height:27.0pt; text-align:left;'>
+  <input type="Button" onclick="saveAttendance()" size ="10" style="background-color:green;color:white;font-size:18;" value="Save" id="btnAttSave"/>
+  <input type="Button" onclick="loadAttendance()" size ="10" style="background-color:blue;color:white;font-size:18;" value="Import" id="btnAttImport"/>
+  <div id="uploaddiv" style ="visibility:hidden;">
+  	<form action="uploaddata/uploadAtt1.php" method="post" name="upload_excel" enctype="multipart/form-data" onsubmit="showImportData()">
+		<input type="file" name="file" id="file" class="file_box"/>				  
+		<button type="submit" id="submit" style="background-color:red; " name="submit" class="btn btn-primary button-loading" 
+						data-loading-text="Loading...">Show</button>
+	</form>
+  </div>
+  </td>
+  <td colspan=37 height=36 class=xl6610587 style='height:27.0pt'>Attendance
+  Register</td>
+ </tr>
+ 
+ <tr height=39 style='mso-height-source:userset;height:29.4pt'>
+  <td rowspan=2 height=55 class=xl6810587 width=28 style='height:41.4pt;
+  border-top:none;width:21pt'>Sr. No.</td>
+  <td rowspan=2 class=xl6510587 style='border-top:none'>Name of Employee</td>
+  <td colspan=31 class=xl6510587 style='border-left:none'>Days</td>
+  <td rowspan=2 class=xl6810587 width=50 style='border-top:none;width:37pt'>Total
+  Present Days</td>
+  <td rowspan=2 class=xl6810587 width=64 style='border-top:none;width:48pt'>Salary
+  / Wages</td>
+  <td colspan=2 class=xl6510587 style='border-left:none'>Deductions</td>
+  <td rowspan=2 class=xl6510587 style='border-top:none'>Net Salary</td>
+  <td rowspan=2 class=xl6510587 style='border-top:none'>Sign</td>
+ </tr>
+ <tr height=16 style='height:12.0pt'>
+  <td height=16 class=xl6410587 align=right style='height:12.0pt;border-top:
+  none;border-left:none'>1</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>2</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>3</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>4</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>5</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>6</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>7</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>8</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>9</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>10</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>11</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>12</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>13</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>14</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>15</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>16</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>17</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>18</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>19</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>20</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>21</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>22</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>23</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>24</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>25</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>26</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>27</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>28</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>29</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>30</td>
+  <td class=xl6410587 align=right style='border-top:none;border-left:none'>31</td>
+  <td class=xl6510587 style='border-top:none;border-left:none'>PF</td>
+  <td class=xl6510587 style='border-top:none;border-left:none'>ESIC</td>
+ </tr>
+  
+</table>
+<div id="testresult"></div>
+</div>
+<script type="text/javascript">
+ showAttReport("attendance");
+ //	alert("b");
+</script>
+
+</body>
+
+</html>

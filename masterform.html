@@ -1,0 +1,300 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Dhawal Consultancy</title>
+	<script type="text/javascript" src="js/datepickercontrol.js"></script><script type="text/javascript" src="js/jsroutines.js"></script>
+	<link href="css/datepickercontrol.css" rel="stylesheet" type="text/css" />
+	<link href="css/css1.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">.space {text-indent:5px; min-width:60px;}
+.tdtitle { background-color: #e5e1d0 ; color:#900; font-weight:bold; height:20px; padding-top:5px; text-indent:5px }
+.tbl1td1 { height:27px; padding-left:5px;}
+.list_back {background:url(images/bk_list.png) repeat-x ;padding:0; margin:0px;}
+.style1 {color: #000000;border-right-style:solid; border-right-color:#999999; border-right-width:1px;}
+	</style>
+	<script type="text/javascript">
+	var xmlhttp;
+	function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		  }
+	}
+	function cleardata()
+	{
+		window.parent.fcono=""
+		clearForm()
+	}
+	function clearForm()
+	{
+//		alert("x1:"+window.parent.fcono);
+		document.getElementById("cono").value=""
+		document.getElementById("cname").value=""
+		document.getElementById("addr").value=""
+		document.getElementById("phone").value=""
+		document.getElementById("email").value=""
+		document.getElementById("estddate").value=""
+		document.getElementById("epfno").value=""
+		document.getElementById("ESIC").value=""
+		document.getElementById("epfrate").value=""
+		document.getElementById("penrate").value=""
+		for(i=1;i<6;i++)
+		{
+			document.getElementById("tbl"+i+"1").value=""
+			document.getElementById("tbl"+i+"2").value=""
+			document.getElementById("tbl"+i+"3").innerHTML=""
+		}
+//		alert("x:"+window.parent.fcono);
+	}
+function savedata()
+{
+//    alert("x")
+	cnam= document.getElementById("cname").value
+	if(cnam.length==0)
+	{
+		alert("Invalid Co. name");
+		return
+	}
+	vcono=window.parent.fcono;
+	vestddate=document.getElementById("estddate").value
+	vaddr=document.getElementById("addr").value
+	vepfno=document.getElementById("epfno").value
+	vesic=document.getElementById("ESIC").value
+	vphone=document.getElementById("phone").value
+	vemail=document.getElementById("email").value
+	vepfrate=isNaN(document.getElementById("epfrate").value)?0:parseFloat(document.getElementById("epfrate").value)
+	vpenrate=isNaN(document.getElementById("penrate").value)?0:parseFloat(document.getElementById("penrate").value)
+	odtls=""
+ //   alert("y")
+/*	for(i=1;i<6;i++)
+	{
+	vpid = alltrim(document.getElementById("tbl"+i+"3").innerHTML).length==0?0:document.getElementById("tbl"+i+"3").innerHTML
+		if(i==1)
+			odtls=vpid+"~"+document.getElementById("tbl"+i+"1").value+"~"+document.getElementById("tbl"+i+"2").value
+		else
+			odtls=odtls+"|"+vpid+"~"+document.getElementById("tbl"+i+"1").value+"~"+document.getElementById("tbl"+i+"2").value
+	} */
+	temp = "&cono="+vcono+"&cname="+cnam+"&addr="+vaddr+"&estddate="+vestddate+"&epfno="+vepfno+"&ESIC="+vesic+"&phone="+vphone+"&email="+vemail
+	temp=temp+"&epfrate="+vepfrate+"&penrate="+vpenrate+"&odtls="+odtls
+ //   alert("x")
+	getxmlhttp();
+	temp = "n="+Math.random()+"temp="+temp+"&vcnt=3"
+//	alert(temp);
+	xmlhttp.onreadystatechange=chkResult;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+function chkResult()
+{
+	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		if(xmlhttp.responseText!='0')
+		{
+			alert("Failed to save")
+		}
+		else
+		{
+			alert("Co. Saved");
+			document.getElementById("msg").value
+		}
+	}
+}
+function showCo()
+{
+	if(xmlhttp.readyState==4)
+	{
+		st=xmlhttp.responseText;
+		arrt=st.split("|");
+		arr=arrt[0].split("~");
+		document.getElementById("cono").value=arr[0];
+		document.getElementById("cname").value=arr[1];
+		document.getElementById("addr").value=arr[2];
+		document.getElementById("phone").value=arr[3];
+		document.getElementById("email").value=arr[4];
+		document.getElementById("estddate").value=arr[5];
+		document.getElementById("epfno").value=arr[6];
+		document.getElementById("ESIC").value=arr[7];
+		
+		document.getElementById("epfrate").value=arr[8];
+		document.getElementById("penrate").value=arr[9];
+		for(i=1;i<arrt.length;i++)
+		{
+			arr=arrt[i].split("~");
+			document.getElementById("tbl"+i+"3").innerHTML=arr[0];
+			document.getElementById("tbl"+i+"1").value=arr[1];
+			document.getElementById("tbl"+i+"2").value=arr[2];
+		}
+	}
+}
+
+</script>
+</head>
+<body bgcolor="#Ece9de"><!-- Begin For datetimepicker control -->
+<p><input id="DPC_TODAY_TEXT" type="hidden" value="today" /> <input id="DPC_BUTTON_TITLE" type="hidden" value="Open calendar..." /> <input id="DPC_MONTH_NAMES" type="hidden" value="['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']" /> <input id="DPC_DAY_NAMES" type="hidden" value="['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']" /> <!-- end For datetimepicker control --></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+	<tbody>
+		<tr>
+			<td class="tdtitle" height="31" valign="top">Recent News</td>
+			<td class="tdtitle">Company info</td>
+		</tr>
+		<tr>
+			<td valign="top" width="150">
+			<table border="0" cellpadding="0" cellspacing="0" style="border:solid 1px #999999" width="145px">
+				<tbody>
+					<tr>
+						<td height="30"><input type="checkbox" /> New organization</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" /> New organization</td>
+					</tr>
+					<tr>
+						<td>
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+
+						<p></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td valign="top" width="650">
+			<table border="0" cellpadding="0" cellspacing="0" style="border:solid 1px #999999" width="600">
+				<tbody>
+					<tr>
+						<td class="space" height="30" width="76">org. name</td>
+						<td colspan="3"><input id="cono" type="hidden" value="0" /> <input id="cname" onblur="proper(this.id)" size="65" type="text" /></td>
+					</tr>
+					<tr>
+						<td class="space" valign="top">Addr.</td>
+						<td colspan="3"><textarea cols="49" id="addr" name="textarea" onblur="proper(this.id)" rows="2">        </textarea></td>
+					</tr>
+					<tr>
+						<td class="space" height="30">Phone</td>
+						<td width="152"><input id="phone" size="25" type="text" /></td>
+						<td class="space" width="61">Email</td>
+						<td width="373"><input id="email" onblur="vemail(this.value)" size="25" type="text" /></td>
+					</tr>
+					<tr>
+						<td class="space" height="25">Estd Date</td>
+						<td><input datepicker="true" datepicker_format="YYYY-MM-DD" id="estddate" size="10" type="text" /><font size="-2">(yyyy-mm-dd)</font></td>
+						<td class="space">EPF No</td>
+						<td><input id="epfno" size="25" type="text" /></td>
+						<td class="space"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="space" height="30">ESIC No</td>
+						<td><input id="ESIC" size="25" type="text" /></td>
+						<td class="space"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="space" height="30">EPF Rate</td>
+						<td><input id="epfrate" size="25" type="text" /></td>
+						<td class="space">Pen Rate</td>
+						<td><input id="penrate" size="25" type="text" /></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E5E1D0" class="tdtitle" colspan="4">Dignitory List</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+						<table>
+							<tbody>
+								<tr>
+									<td class="list_back" height="26">
+									<div align="center" class="style1">Sr.No</div>
+									</td>
+									<td class="list_back">
+									<div class="style1">&nbsp;&nbsp;Dignitory name</div>
+									</td>
+									<td class="list_back">
+									<div align="center">designation</div>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><input id="tbl11" size="55" type="text" /></td>
+									<td><input id="tbl12" size="20" type="text" /></td>
+									<td id="tbl13" style="visibility:hidden"></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><input id="tbl21" size="55" type="text" /></td>
+									<td><input id="tbl22" size="20" type="text" /></td>
+									<td id="tbl23" style="visibility:hidden"></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><input id="tbl31" size="55" type="text" /></td>
+									<td><input id="tbl32" size="20" type="text" /></td>
+									<td id="tbl33" style="visibility:hidden"></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><input id="tbl41" size="55" type="text" /></td>
+									<td><input id="tbl42" size="20" type="text" /></td>
+									<td id="tbl43" style="visibility:hidden"></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><input id="tbl51" size="55" type="text" /></td>
+									<td><input id="tbl52" size="20" type="text" /></td>
+									<td id="tbl53" style="visibility:hidden"></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E5E1D0" colspan="4"></td>
+					</tr>
+					<tr>
+						<td colspan="4">
+						<div style="float:right; margin:0 90px 0 0"><input class="btn_color" onclick="savedata()" type="button" value="Save" /> <input class="btn_color" onclick="cleardata()" type="button" value="Clear" /></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<script type="text/javascript">
+//alert("aa");
+//alert(window.parent.fcono);
+clearForm();
+//alert(window.parent.fcono);
+if(window.parent.fcono>0)
+{
+	getxmlhttp();
+	temp = "n="+Math.random()+"&cono="+window.parent.fcono+"&vcnt=4"
+//	alert(temp);
+	xmlhttp.onreadystatechange=showCo;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+</script></body>
+</html>

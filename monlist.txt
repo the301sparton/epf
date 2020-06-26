@@ -1,0 +1,1 @@
+select master.cono, master.srno,master.empno,master.pfno,master.bdate,master.sname,master.wages,master.share1,master.share2,master.pension, monthly.wages as mwages, monthly.share1 as mshare1, monthly.share2 as mshare2, monthly.pension as mpension, monthly.month, monthly.year as year,monthly.msrno from master left join monthly on master.srno=monthly.srno

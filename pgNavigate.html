@@ -1,0 +1,49 @@
+<html>
+<head>
+<script type="text/javascript">
+function chkpgno()
+{
+	vpgno=document.getElementById("pgno").value
+	if(vpgno<0) vpgno=1
+	if(vpgno>1)
+	{
+		vpgno--;
+		document.getElementById("pgno").value=vpgno;
+		window.parent.pgno=vpgno;
+		fnname="window.parent."+window.parent.fillerFn
+		eval(fnname)
+	}
+}
+
+function prevPg()
+{
+	vpgno=document.getElementById("pgno").value
+	if(vpgno>1)
+	{
+		vpgno--;
+		document.getElementById("pgno").value=vpgno;
+		window.parent.pgno=vpgno;
+		fnname="window.parent."+window.parent.fillerFn
+		eval(fnname)
+	}
+}
+function nextPg(maxrows,dlist)
+{
+	ros=document.getElementById(dlist).rows
+	if(ros.length>=maxrows)
+	{
+		vpgno=document.getElementById("pgno").value
+		vpgno++;
+		window.parent.pgno=vpgno;
+		document.getElementById("pgno").value=vpgno;
+		fnname="window.parent."+window.parent.fillerFn
+		eval(fnname)
+	}	
+}
+</script>
+</head>
+<body>
+    <input type="button" value="<<|" id="rev" onClick="prevPg()"/>
+    <input type="text" size="8" id="pgno" onBlur="chkpg()" />
+    <input type="button" value="|>>" id="next" onClick="nextPg()"/>
+</body>

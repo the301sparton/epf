@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+.title {text-align:right; padding-right:10px; font-weight:bold;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+	var cnt=0;
+	var xmlhttp;
+	function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+	function resetIt()
+	{
+		document.getElementById("tepfno").value=""
+		document.getElementById("tuan").innerHTML=""
+		cnt=0;
+		window.parent.document.getElementById('frm2').className='chpwd1'	
+	}
+	function chkEpfNo()
+	{
+		vepfno=document.getElementById("tepfno").value
+		temp="&epfno="+vepfno
+		temp = "n="+Math.random()+temp+"&vcnt=31"
+		getxmlhttp();
+		xmlhttp.onreadystatechange=showUan;
+		xmlhttp.open("POST","loginajax.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function showUan()
+	{
+		if(xmlhttp.readyState==4)
+		{
+	
+			ch=parseInt(xmlhttp.responseText);
+//			alert(ch);
+			document.getElementById("tuan").innerHTML="UAN : "+ch;
+		}
+	}
+</script>
+</head>
+<body style="margin:auto; background-color:#FFFFCC">
+<table border="1" >
+<tr><td colspan="2" align="center"><font size="+2"><b>Get UAN</b></font></td></tr>
+<tr><td class="title">Enter EPF No.</td><td><input type="text" id="tepfno" onblur="chkEpfNo()"  /></td></tr>
+<tr><td class="title" id="tuan" colspan="2" align="center"></td></tr>
+<tr><td colspan="2" align="right">
+<input type="button"  id="btn" value="Done" onclick="resetIt()" />
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paid Chalan Entry</title>
+<script type="text/javascript" src="js/datepickercontrol.js"></script>
+<link type="text/css" rel="stylesheet" href="css/datepickercontrol.css"> 
+
+<script type="text/javascript">
+	var xmlhttp;
+	function getxmlhttp()
+	{
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	}
+	else  
+	{
+	// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  }
+	}
+	function getmon()
+	{
+		mon=document.getElementById("tmon").value
+	}
+	function getfyyr()
+	{
+		fyr=parseInt(document.getElementById("tfyyr").value)
+		if(!isNaN(fyr))
+			fyyr=fyr
+	//	alert(fyyr);
+	}
+	function saverec()
+	{
+		getxmlhttp();
+		vid = parseInt(document.getElementById("tid").value);
+		fyr=parseInt(document.getElementById("tfyyr").value)
+		errst="";
+		if(!isNaN(fyr))
+		{	fyyr=fyr; }
+		else
+		{	errst="Fy.year cannot be blank<br/>"; }
+		if(document.getElementById("tpdate").value.length==0)	
+		{
+			errst = errst + "Payment date cannot be blank.</br>";
+		}
+		if(errst.length>0)
+		{ alert(errst);return;}
+		else
+		{
+			st="&data="
+			if(isNaN(vid)){	st=st+"0#"; }	else {	st=st+(vid+"#"); }
+			st=st+document.getElementById("tmon").value+"#";
+			st=st + document.getElementById("tpdate").value +"#";
+			if(isNaN(fyr)){	st=st+"0#"; }	else {	st=st+(fyr+"#"); }
+			if(!isNaN(document.getElementById("ac1").value))
+				{st=st+document.getElementById("ac1").value+"#";} else {st=st+"0#"; }
+			if(!isNaN(document.getElementById("ac10").value))
+				{st=st+document.getElementById("ac10").value+"#";} else {st=st+"0#"; }
+			if(!isNaN(document.getElementById("ac2").value))
+				{st=st+document.getElementById("ac2").value+"#";} else {st=st+"0#"; }
+			if(!isNaN(document.getElementById("ac21").value))
+				{st=st+document.getElementById("ac21").value+"#";} else {st=st+"0#"; }
+			if(!isNaN(document.getElementById("ac22").value))
+				{st=st+document.getElementById("ac22").value;} else {st=st+"0"; }
+			temp = "n="+Math.random()+st+"&vcnt=1"
+//			alert(temp);
+			xmlhttp.onreadystatechange=checkResult;
+			xmlhttp.open("POST","ajaxpaidchalan.php",true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			xmlhttp.send(temp); 
+		}
+	}
+	function checkResult()
+	{
+		if(xmlhttp.readyState==4)
+		{
+//			alert(xmlhttp.responseText);
+			if(xmlhttp.responseText=='1')
+			{ 	alert("Failed to save the record");}
+			else
+			{
+				clearrec();
+			}
+		}
+	}
+	function delrow(i)
+	{
+		vid=("c"+i)+7;
+		idno=document.getElementById(vid).innerHTML;		
+		getxmlhttp();
+		st="&id="+idno;
+		temp = "n="+Math.random()+st+"&vcnt=2"
+//			alert(temp);
+		xmlhttp.onreadystatechange=checkdel;
+		xmlhttp.open("POST","ajaxpaidchalan.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function checkdel()
+	{
+		if(xmlhttp.readyState==4)
+		{
+//			alert(xmlhttp.responseText);
+			if(xmlhttp.responseText=='1')
+			{ 	alert("Failed to Delete the record");}
+			else
+			{
+				showlist();
+			}
+		}
+	
+	}
+	function showrow(i)
+	{
+		vid=("c"+i)+0;
+		document.getElementById("tpdate").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+2;
+		document.getElementById("ac1").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+3;
+		document.getElementById("ac10").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+4;
+		document.getElementById("ac2").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+5;
+		document.getElementById("ac21").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+6;
+		document.getElementById("ac22").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+7;
+		document.getElementById("tid").value=document.getElementById(vid).innerHTML;		
+		vid=("c"+i)+8;
+		document.getElementById("tfyyr").value=document.getElementById(vid).innerHTML;		
+		document.getElementById("listdiv").style.visibility="hidden";
+	
+	}
+	function clearrec()
+	{
+		document.getElementById("tid").value="";
+		document.getElementById("tpdate").value="";	
+		document.getElementById("ac1").value="";		
+		document.getElementById("ac10").value="";		
+		document.getElementById("ac2").value="";		
+		document.getElementById("ac21").value="";		
+		document.getElementById("ac22").value="";		
+		document.getElementById("tpdate").focus();
+	}
+	function getlist()
+	{
+		fyr=parseInt(document.getElementById("tfyyr1").value);
+		errst="";
+		if(!isNaN(fyr))
+		{	st="&fyyr="+fyr; }
+		else
+		{	alert("Fy.year cannot be blank");return; }
+		getxmlhttp();
+		temp = "n="+Math.random()+st+"&vcnt=3"
+//			alert(temp);
+		xmlhttp.onreadystatechange=showlist;
+		xmlhttp.open("POST","ajaxpaidchalan.php",true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xmlhttp.send(temp); 
+	}
+	function showlist()
+	{
+		if(xmlhttp.readyState==4)
+		{
+		//	alert(xmlhttp.responseText);
+			vtbl = document.getElementById("tbl");
+			for(var i = vtbl.rows.length-1; i > 0;i--)
+			{
+				vtbl.deleteRow(i);
+			}
+			if(xmlhttp.responseText=='-')
+			{ 	alert("No data available");return;}
+			else
+			{
+				st=xmlhttp.responseText;
+//				alert(st);
+//				return;
+				vtbl = document.getElementById("tbl");
+				arr1=st.split("#");
+				var i,j;
+				for(i=0;i<arr1.length;i++)
+				{
+					arr=arr1[i].split("|");
+					r=vtbl.insertRow(-1)
+					r.height="30px"
+					for(j=0;j<arr.length;j++)
+					{
+						c=r.insertCell(j);c.innerHTML=arr[j];
+						c.id=("c"+i)+j;
+						if(j<arr.length-2) {c.className='td5';} else {c.className='td7'; }
+					}
+					c=r.insertCell(9);
+					c.innerHTML="<input type='button' class='td4' id='ed'"+i+" value='Ed' onclick='showrow("+i+")'/>";
+					c=r.insertCell(10);
+					c.innerHTML="<input type='button' class='td4' id='dl'"+i+" value='De' onclick='delrow("+i+")'/>";
+				}
+			}
+			
+		}
+	}
+	function listrec()
+	{
+		document.getElementById("listdiv").style.visibility="visible";
+		document.getElementById("tfyyr1").value=document.getElementById("tfyyr").value;
+	}
+</script>
+<style>
+.tr1 { padding-top:20px; padding-bottom:20px; }
+.td1 {padding-top:5px; padding-bottom:5px; padding-right:10px; text-align:right; background-color:#EEEEEE;}
+.td2 {padding-top:5px; padding-bottom:5px; padding-left:5px; text-align:left; }
+.btn {width:70px;}
+.td3 {text-align:center; background-color:#CCCC00; width:70px;}
+.td4 {text-align:center; background-color:#CC0000; color:#FFFFFF; width:30px; }
+.td5 {text-align:center; width:70px;}
+.td6 {text-align:center; font-size:smaller; }
+.td7 {visibility:hidden};
+</style>
+</head>
+
+<body bgcolor="#Ece9de">
+
+    <!-- Begin For datetimepicker control -->
+    <input type="hidden" id="DPC_TODAY_TEXT" value="today">
+    <input type="hidden" id="DPC_BUTTON_TITLE" value="Open calendar...">
+    <input type="hidden" id="DPC_MONTH_NAMES" value="['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']">
+    <input type="hidden" id="DPC_DAY_NAMES" value="['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">
+    <!-- end For datetimepicker control -->
+	<div id="entrydiv" style="left:50px;">
+		<table border="0">
+	    <tr class="tr1" style="visibility:hidden" >
+        <td class="td1">Fy. Year</td><td class="td2">
+        <input type="text" id="tid" size="15" maxlength="4"  /></td></tr>
+       
+	    <tr class="tr1"><td class="td1">Fy. Year</td><td class="td2">
+        <input type="text" size="15" id="tfyyr" maxlength="4" onchange="getfyyr()" /></td></tr>
+    	<tr class="tr1" ><td class="td1">Month</td><td class="td2">
+    	<select name="select" id="tmon" onchange="getmon()">
+          <option value="Mar">Mar</option>
+          <option value="Apr">Apr</option>
+          <option value="May">May</option>
+          <option value="Jun">Jun</option>
+          <option value="Jul">Jul</option>
+          <option value="Aug">Aug</option>
+          <option value="Sep">Sep</option>
+          <option value="Oct">Oct</option>
+          <option value="Nov">Nov</option>
+          <option value="Dec">Dec</option>
+          <option value="Jan" >Jan</option>
+          <option value="Feb">Feb</option>
+          <option value="Ar1">Arr.1</option>
+          <option value="Ar2">Arr.2</option>
+          <option value="Ar3">Arr.3</option>
+    	</select></td></tr>
+    	<tr class="tr1"><td class="td1">Payment Date</td><td class="td2">
+	    <input type="text" name="tpdate" id="tpdate" size="15" datepicker="true" datepicker_format="YYYY-MM-DD"><br /><font size="-2">(yyyy-mm-dd)</font> </td></tr>
+    	<tr class="tr1"><td class="td1">A/c No.1</td>
+        <td class="td2"><input type="text" id="ac1" size="15" maxlength="8" /></td></tr>
+        <tr class="tr1"><td class="td1">A/c No.10</td>
+        <td class="td2"><input type="text" id="ac10" size="15" maxlength="8"  /></td></tr>
+        <tr class="tr1"><td class="td1">A/c No.2</td>
+        <td class="td2"><input type="text" id="ac2" size="15" maxlength="8"/></td></tr>
+        <tr class="tr1"><td class="td1">A/c No.21</td>
+        <td class="td2"><input type="text" id="ac21" size="15" maxlength="8"/></td></tr>
+        <tr class="tr1"><td class="td1">A/c No.22</td>
+        <td class="td2"><input type="text" id="ac22" size="15" maxlength="8"/></td></tr>
+        <tr class="tr1"><td colspan="2">
+        <input type="button" class="btn" id="cmdsave" value="Save" onclick="saverec()" />
+        <input type="button" class="btn" id="cmdclear" value="Clear" onclick="clearrec()" />
+        <input type="button" class="btn" id="cmdlist" value="List" onclick="listrec()" />
+        </td></tr>
+    	</table>
+	</div>
+	<div id="listdiv" style="position:relative; margin-left:245px; margin-top:-310px; width:300px; border:thin; visibility:hidden;">
+		<table border="0">
+<tr><td style="text-align:center">
+Fy.Year :<input type="text" maxlength="8" size="15" id="tfyyr1"  />
+<input type="button" value="Show" onclick="getlist()" />
+<input type="button" value="Done" onclick="hidelist()" />
+
+</td></tr>
+<tr><td>
+<table width="530px" border="1" cellpadding=0 cellspacing=0 style='table-layout:fixed; font-size:smaller;' id="tbl">
+	<tr><td class="td3">P.Date</td><td class="td3">Month</td><td class="td3">A/c 1</td><td class="td3">A/c 10</td>
+    <td class="td3">A/c 2</td><td class="td3">A/c 21</td><td class="td3">A/c 22</td>
+    <td class="td7"></td><td class="td7"></td><td class="td4">Edit</td><td class="td4">Del</td></tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

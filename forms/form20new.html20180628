@@ -1,0 +1,1213 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link rel=File-List href="form20_files/filelist.xml">
+<style id="Book1_30880_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.xl1530880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6330880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6430880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6530880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6630880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6730880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:13.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6830880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:13.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6930880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7030880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7130880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:13.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7230880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:13.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7330880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:13.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7430880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7530880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7630880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7730880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7830880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7930880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8030880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8130880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8230880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8330880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8430880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8530880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8630880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8730880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8830880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl8930880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9030880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9130880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9230880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9330880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9430880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9530880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9630880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9730880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9830880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl9930880
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.txt {style=border:none;background-color:b0ffff; }
+
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="Book1_30880" align=center x:publishsource="Excel">
+
+<table border=0 cellpadding=0 cellspacing=0 width=969 style='border-collapse:
+ collapse;table-layout:fixed;width:727pt'>
+ <col width=38 style='mso-width-source:userset;mso-width-alt:1365;width:29pt'>
+ <col width=149 style='mso-width-source:userset;mso-width-alt:5290;width:112pt'>
+ <col width=64 span=2 style='width:48pt'>
+ <col width=75 style='mso-width-source:userset;mso-width-alt:2673;width:56pt'>
+ <col width=64 style='width:48pt'>
+ <col width=82 style='mso-width-source:userset;mso-width-alt:2929;width:62pt'>
+ <col width=64 style='width:48pt'>
+ <col width=79 style='mso-width-source:userset;mso-width-alt:2816;width:59pt'>
+ <col width=98 style='mso-width-source:userset;mso-width-alt:3470;width:73pt'>
+ <col width=64 span=3 style='width:48pt'>
+ <tr height=26 style='mso-height-source:userset;height:20.1pt'>
+  <td colspan=8 height=26 class=xl6330880 width=600 style='height:20.1pt;
+  width:451pt'><span style='mso-spacerun:yes'>                             
+  </span>EMPLOYEE PROVIDENT FUND ORGANISATION<span
+  style='mso-spacerun:yes'>    </span></td>
+  <td class=xl6530880 width=79 style='width:59pt'>&nbsp;</td>
+  <td class=xl6530880 width=98 style='width:73pt'>&nbsp;</td>
+  <td class=xl6530880 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl6630880 width=64 style='width:48pt'>&nbsp;</td>
+  <td class=xl1530880 width=64 style='width:48pt'></td>
+ </tr>
+ <tr height=26 style='mso-height-source:userset;height:20.1pt'>
+  <td colspan=8 height=26 class=xl6730880 style='height:20.1pt'><span
+  style='mso-spacerun:yes'>                               </span>Composite
+  Claim Form in Death Cases</td>
+  <td colspan=4 class=xl6930880 style='border-right:.5pt solid black'>Mobile
+  No<span><input type="text" class="txt"/></span></td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=26 style='mso-height-source:userset;height:20.1pt'>
+  <td colspan=8 height=26 class=xl6730880 style='height:20.1pt'><span
+  style='mso-spacerun:yes'>                    </span>[Form -20 (PF
+  Payment)/Form-10-D (Pension), Form - 5 IF (EDLI)]</td>
+  <td colspan=4 class=xl7130880 style='border-right:1.0pt solid black'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td colspan=12 height=19 class=xl7430880 style='border-right:.5pt solid black;
+  height:14.4pt'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>1</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>Tick whichever is/are applicable</td>
+  <td colspan=2 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Provident Fund (<input type ="checkbox" id="pfund"  class="txt" />)</td>
+  <td colspan=2 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Type of Pension Claim:</td>
+  <td colspan=3 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Insurance [EDLI] (<input type ="checkbox" id="cname"  class="txt" />)</td>
+  <td class=xl8430880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>2</td>
+  <td colspan=4 class=xl8530880 style='border-right:.5pt solid black;
+  border-left:none'>Name of the deceased member (in CAPITAL Letter) </td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text" id="sname" class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text" class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>3</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>a. Father's Name</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type="text" id="fname" size="20" class="txt"/></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>b. Spouse's Name:</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type="text"  size="20" class="txt"/></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>4</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>Marital Status of deceased member</td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl8530880 style='border-right:.5pt solid black;
+  border-left:none'>a)Aadhar Number of the deceased member (if available)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>5</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>b)Universal Account Number(UAN)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text" id="epfno" class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>c)PF Account Number (in case UAN not available)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>6</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>Date of Leaving Service</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text" id="l_date" class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl8530880 style='border-right:.5pt solid black;
+  border-left:none'>a)Whether Scheme Certificate has been issued(Yes/No)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>7</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>b)If Yes, Number of Scheme Certificate</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>c)Scheme Certificate issuing office<span
+  style='mso-spacerun:yes'> </span></td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>8</td>
+  <td colspan=4 class=xl8530880 style='border-right:.5pt solid black;
+  border-left:none'>Period of Non-Contributory service (Year/Month/Days)-</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>&nbsp;</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>(To be filled by the employer)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>9</td>
+  <td colspan=4 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>Date of death of the member</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>10</td>
+  <td colspan=4 class=xl8530880 style='border-right:.5pt solid black;
+  border-left:none'>Whether the member had died while in service (Yes/No)</td>
+  <td colspan=2 class=xl8830880 style='border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td colspan=2 class=xl8930880 style='border-right:.5pt solid black;
+  border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8930880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl9130880 style='border-top:none'>&nbsp;</td>
+  <td class=xl9030880 style='border-top:none'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td colspan=12 height=19 class=xl9230880 style='border-right:.5pt solid black;
+  height:14.4pt'>&nbsp;</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=26 style='mso-height-source:userset;height:20.1pt'>
+  <td colspan=12 height=26 class=xl9530880 style='border-right:.5pt solid black;
+  height:20.1pt'>CLAIMENT'S DETAILS FOR PROVIDENT FUND, PENSION AND INSRANCE
+  (EDLI)</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl8830880 align=right style='height:14.4pt;border-top:
+  none'>11</td>
+  <td colspan=11 class=xl7830880 style='border-right:.5pt solid black;
+  border-left:none'>Particulars of the claimant/minor/nominee(s)/legal
+  heir(s)/surviving family member on whose behalf the claim is submitted</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl9830880 style='height:14.4pt;border-top:none'>S. N.</td>
+  <td class=xl7730880 style='border-top:none;border-left:none'>Name</td>
+  <td colspan=3 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Father's/Spouse's Name</td>
+  <td colspan=2 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Aadhar Number</td>
+  <td class=xl9830880 style='border-top:none;border-left:none'>Gender</td>
+  <td class=xl9830880 style='border-top:none;border-left:none'>Date of Birth</td>
+  <td class=xl9830880 style='border-top:none;border-left:none'>Marital Stauts</td>
+  <td colspan=2 class=xl8130880 style='border-right:.5pt solid black;
+  border-left:none'>Relationship with</td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>i</td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7930880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="7" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="4" /></td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>ii</td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7930880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="7" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="4" /></td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>iii</td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7930880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="7" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="4" /></td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>iv</td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7930880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="7" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="4" /></td>
+  <td class=xl1530880></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl7730880 style='height:14.4pt;border-top:none'>v</td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7930880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl7830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8030880 style='border-top:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="20" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="7" /></td>
+  <td class=xl8830880 style='border-top:none;border-left:none'><input type ="text"  class="txt" size ="4" /></td>
+  <td class=xl1530880></td>
+ </tr>
+
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=38 style='width:29pt'></td>
+  <td width=149 style='width:112pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=75 style='width:56pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=82 style='width:62pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=79 style='width:59pt'></td>
+  <td width=98 style='width:73pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>

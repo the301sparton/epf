@@ -1,0 +1,133 @@
+<html>
+<head></head>
+<body>
+<div>
+<table width="100%">
+   <tr height="29"><td colspan="40" height="29" align="center"><input type="text" class="txt" size="100" id="coname1" /></td></tr>
+  <tr height="29"><td colspan="40" height="29" align="center"><input type="text" size="50" class="txt" id="epfno1" /></td></tr>  
+<tr>
+  <td>Sr. No.</td>
+  <td>Check</td>
+  <td>Employee ID</td>
+  <td>Employee Name</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+  <td>10</td>
+  <td>11</td>
+  <td>12</td>
+  <td>13</td>
+  <td>14</td>
+  <td>15</td>
+  <td>16</td>
+  <td>17</td>
+  <td>18</td>
+  <td>19</td>
+  <td>20</td>
+  <td>21</td>
+  <td>22</td>
+  <td>23</td>
+  <td>24</td>
+  <td>25</td>
+  <td>26</td>
+  <td>27</td>
+  <td>28</td>
+  <td>29</td>
+  <td>30</td>
+  <td>31</td>
+  <td>Present days</td>
+  <td>Minimum</td>
+  <td>Salary</td>
+  <td colspan="2">Diduction	</td>
+  <td>Net Salary</td>
+  <td>Signiture</td>
+ </tr>
+
+ <script type="text/javascript">
+    for(i=1;i<=30;i++)
+  {
+    st='<tr> <td><input type="checkbox" class="txt"></td><td width="5%"><div align="center">'+i+'</div></td>';
+    vid=("b"+i)+"1";
+    st=st + '<td width="10%" align="center"><input type="text" size="5"  id="'+vid+'" /></td>';
+    vid=("b"+i)+"2";
+    st=st + '<td width="40%" align="center"><input type="text" size="40" id="'+vid+'" /></td>';
+      for(j=1;j<=32;j++)
+       {
+         st=st + '<td width="10%" align="center"><input type="text" size="1"  /></td>';
+        }
+
+       st=st + '<td><input type="text" class="txt_pre_day"size="1" ></td><td><input type="text" class="txt_min"size="1" ></td><td><input type="text" class="txt_sal"size="1" ></td><td><input type="text" class="txt_epf" placeholder="Epf"></td><td><input type="text" class="txt_esic" placeholder="ESIC"></td>';
+
+
+    st=st + '<tr>';
+
+
+    document.write(st);
+  }
+  </script>
+
+ <tr>
+  <td><input type="text" class="txt" size="1"></td>
+  <td><input type="checkbox" class="txt"></td>
+  <td><input type="text" class="txt"></td>
+  
+  
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1"></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  <td><input type="text" class="txt_day" size="1" ></td>
+  
+  
+  <td><input type="text" class="txt_pre_day"size="1" ></td>
+  <td><input type="text" class="txt_min"size="1" ></td>
+  <td><input type="text" class="txt_sal"size="1" ></td>
+  <td><input type="text" class="txt_epf" placeholder="Epf"></td>
+  <td><input type="text" class="txt_esic" placeholder="ESIC"></td>
+ 
+  <td><input type="text_net_sal" class="txt"size="11" ></td>
+  <td><input type="text_sign" class="txt"size="11" ></td>
+ </tr>
+ <tr height="20px"><td colspan="40">&nbsp;</td></tr>
+    <tr><td colspan="19" align="right" style="padding-right:70px">For&nbsp;
+    <input type="text" size="40" id="cname" /></td></tr>
+    <tr height="40px"><td colspan="19">&nbsp;</td></tr>
+    <tr><td colspan="19" align="right" style="padding-right:70px">Authorised Signatory</td></tr>
+</tbody>
+</table>
+
+</div>
+</body>
+</html>

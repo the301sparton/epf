@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+td { text-align:center;}
+.td1 { text-align:right;}
+.tbox { size:10;}
+</style>
+<script type="text/javascript">
+function postit()
+{
+	var doc = window.parent.document.getElementById("forms").contentWindow.document;
+	try {
+	temp = document.getElementById("pdt").value
+	doc.getElementById("pdt").innerHTML = temp; }
+	catch(e) {alert(e.message)}
+//	alert("a1")
+	for(i=1;i<=3;i++)
+	{
+		for(j=1;j<=5;j++)
+		{
+			try {
+			nam = ("tbl"+i)+j;
+//			alert(nam);
+			temp = document.getElementById(nam).value;
+			doc.getElementById(("td"+i)+j).innerHTML = temp;
+			doc.getElementById("rtot"+j).innerHTML = val(doc.getElementById("rtot"+j).innerHTML)+val(temp);
+			}
+			catch(e) {
+//			alert(i+","+j);
+//			alert(e.message);
+			}
+		}
+	}
+	for(i=1;i<=3;i++)
+	{
+		try {
+			temp = document.getElementById("tbl4"+i).value;
+		doc.getElementById("td4"+i).innerHTML = temp; }
+		catch(e) { }
+	}	
+	window.parent.document.getElementById("entrydiv").style.visibility="hidden";
+//	alert(doc.getElementById("test").innerHTML);
+}
+</script>
+</head>
+
+<body bgcolor="#CCFF99">
+<script type="text/javascript">
+ var arr = Array("Insp. Ch.","Penal Ch.","Misc. Ch.");
+ st = "<table border='1'><tr><td>Payment Date</td><td><input type='text' size='10' id='pdt' /></td></tr>"
+ st=st+"<td>Particulars</td><td>A/c 1</td><td>A/c No.2</td><td>A/c No.10</td><td>A/c No.21</td><td>A/c No.22</td></tr>"
+for(i=1;i<=3;i++)
+{
+	st=st+"<tr><td>"+arr[i-1]+"</td>";
+	for(j=1;j<=5;j++)
+	{	
+		nam = ("tbl"+i)+j;
+//		alert(nam);
+		st=st + ("<td><input type='text' size='10' id='"+ nam +"'/></td>");
+	}
+	st=st+"</tr>"
+}
+st=st+"<tr><td>";
+st=st+"<tr><td>Bank:</td><td><input type='text' size='10' id='tbl41'/>"
+st=st+"<td>Cheque No.:</td><td><input type='text' size='10' id='tbl42'/>"
+st=st+"<td>Date:</td><td><input type='text' size='10' id='tbl43'/>"
+st=st+"</tr>"
+st=st+"<tr><td colspan='6' class='td1'><input type='button' value='Post' onclick='postit()'/></td></tr></table>"
+document.write(st);
+</script>
+</body>
+</html>

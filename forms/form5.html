@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+.txt {text-align:center;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Form 5 & 10</title>
+</head>
+
+<body>
+<table cellspacing="0" cellpadding="0">
+  <tr height="31">
+    <td colspan="19" height="31" width="607"><h3 align="center">FORM NO.5</h3></td>
+  </tr>
+  <tr height="29">
+    <td colspan="19" height="29"><h3 align="center">THE EMPLOYEES’PROVIDENT FUND SCHEME 1952</h3></td>
+  </tr>
+  <tr height="34"><td colspan="19" height="34"><h3 align="center">AND EMPLOYEES’PENSION SCHEME, 1995</h3></td></tr>
+  <tr height="29"><td colspan="19" height="29" align="center"><input type="text" class="txt" size="50" id="coname1" /></td></tr>
+  <tr height="29"><td colspan="19" height="29" align="center"><input type="text" size="50" class="txt" id="epfno1" /></td></tr>
+   </tr>
+  <tr >
+  	<td colspan="19" align="center">
+    <table border="1" cellpadding="0" cellspacing="0">
+    <tr><td colspan="7" height="19"><h3 align="center" id='hconame'></h3></td></tr>
+    <tr>
+    <td width="50"><div align="center">S.N.</div></td>
+    <td width="51"><div align="center">AcNo</div></td>
+    <td width="169">Full Name of the employee</td>
+    <td width="60"><div align="center">Date of Birth</div></td>
+    <td width="30"><div align="center">Sex</div></td>
+    <td width="80"><div align="center">Date of Joining</div></td>
+    <td width="94"><div align="center">Remark</div></td>
+  </tr>
+  <script type="text/javascript">
+  	for(i=1;i<=7;i++)
+	{
+		st='<tr><td width="50px"><div align="center">'+i+'</div></td>';
+		vid=("b"+i)+"1";
+		st=st + '<td width="50px" align="center"><input type="text" id="'+vid+'" size="5" /></td>';
+		vid=("b"+i)+"2";
+		st=st + '<td width="160px" align="center"><input type="text" id="'+vid+'" size="30" /></td>';
+		vid=("b"+i)+"3";
+		st=st + '<td width="80px" align="center"><input type="text" id="'+vid+'" size="12" /></td>';
+		vid=("b"+i)+"4";
+		st=st + '<td width="30px" align="center"><input type="text" id="'+vid+'" size="3" /></td>';
+		vid=("b"+i)+"5";
+		st=st + '<td width="80" align="center"><input type="text" id="'+vid+'" size="12" /></td>';
+		vid=("b"+i)+"6";
+		st=st + '<td width="80" align="center"><input type="text" id="'+vid+'" size="12" /></td></tr>';
+		document.write(st);
+	}
+	</script>
+</table>
+</td></tr>
+<tr><td colspan="19">&nbsp;</td></tr>
+	<tr height="27">
+        <td colspan="19" height="27"><h3 align="center">FORM NO.10</h3></td>
+    </tr>
+    <tr height="25">
+        <td colspan="19" height="25"><h3 align="center">THE EMPLOYEES’ PROVIDENT FUND SCHEME 1952</h3></td>
+     </tr>
+     <tr height="25">
+        <td colspan="19" height="25"><h3 align="center">AND EMPLOYEES’ PENSION SCHEME, 1995</h3></td>
+     </tr>
+      <tr height="25"><td colspan="19" height="29" align="center"><input type="text" class="txt" size="50" id="coname2" /></td></tr>
+      <tr height="25"><td colspan="19" height="29" align="center"><input type="text" size="50" class="txt" id="epfno2" /></td></tr>
+     <tr>
+     <td colspan="19" align="center">
+     	<table border="1" cellpadding="0" cellspacing="0">
+	    <tr><td colspan="6" height="19"><h3 align="center" id='hconame1'></h3></td></tr>
+        <tr>
+            <td width="50" height="44">S.N.</td>
+          <td width="55" align="center">AcNo</td>
+          <td width="164">Full Name of the member</td>
+          <td width="61" align="center">Date of Leaving</td>
+          <td width="98" align="center">Reason for leaving service</td>
+          <td width="82" align="center">remark</td>
+      </tr>
+  <script type="text/javascript">
+  	for(i=1;i<=7;i++)
+	{
+		st='<tr><td width="50px"><div align="center">'+i+'</div></td>';
+		vid=("c"+i)+"1";
+		st=st + '<td width="50px" align="center"><input type="text" id="'+vid+'" size="5" /></td>';
+		vid=("c"+i)+"2";
+		st=st + '<td width="164px" align="center"><input type="text" id="'+vid+'" size="30"  /></td>';
+		vid=("c"+i)+"3";
+		st=st + '<td width="80px" align="center"><input type="text" id="'+vid+'" size="12" /></td>';
+		vid=("c"+i)+"4";
+		st=st + '<td width="80px" align="center"><input type="text" id="'+vid+'" size="12" /></td>';
+		vid=("c"+i)+"5";
+		st=st + '<td width="80" align="center"><input type="text" id="'+vid+'" size="12" /></tr>';
+		document.write(st);
+	}
+	</script>
+    </table>
+    </td></tr>
+    <tr height="20px"><td colspan="19">&nbsp;</td></tr>
+    <tr><td colspan="19" align="right" style="padding-right:70px">For&nbsp;
+    <input type="text" size="40" class="txt" id="cname3" /></td></tr>
+    <tr height="40px"><td colspan="19">&nbsp;</td></tr>
+    <tr><td colspan="19" align="right" style="padding-right:70px">Authorised Signatory</td></tr>
+    
+    
+    </table>
+    <p>&nbsp;</p>
+  	</body>
+</html>

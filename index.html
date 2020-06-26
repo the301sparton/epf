@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="3600">
+<title>Dhawal Consultancy Welcomes you..</title>
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+<script type="text/javascript">
+	var xmlhttp;
+	function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		  }
+	}
+
+  function chklogin()
+  {
+  	vid = document.getElementById("uid").value
+  	vpwd = document.getElementById("upwd").value
+	getxmlhttp();
+	temp="&id="+vid+"&pwd="+vpwd + "&vcnt=1"
+	temp = "n="+Math.random()+temp
+//		alert(temp);
+	xmlhttp.onreadystatechange=chkres;
+//	alert(temp);
+	xmlhttp.open("POST","loginajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+  }
+  function chkres()
+  {
+  	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		st=parseInt(xmlhttp.responseText);
+//		alert(st);
+		if(st==-1)
+			document.getElementById("errmsg").innerHTML="Connection Error";
+		else if(st==0)
+		{	
+			document.getElementById("errmsg").innerHTML="Invalid login id or password";
+		}
+		else if(st==1)
+		{ 
+			window.location.href="master.html";
+		}
+		else if(st==2)
+		{
+			window.location.href="Reports.php";
+		}
+	}
+  }
+  
+</script>
+<style type="text/css">
+<!--
+.style1 {font-size: 12pt; line-height:180%;}
+.style2 {
+	color: #336600;
+	font-weight: bold;font-size: 10pt;
+}
+-->
+</style>
+</head>
+
+<body bgcolor="#205bc8">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td colspan="2" class="baner">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="bck" style=" font-weight:bold; font-size:medium; color:#660033" >For Best Results please use I.E. Verson 8+</td>
+<!--    <div class="menudiv">Home</div>
+    <div class="menudiv">News and Events</div>
+    <div class="menudiv">Product highlight</div>
+    <div class="menudiv">Customer Support</div>
+    <div class="menudiv">Contect us</div>    </td> -->
+    <td class="bck">&nbsp;</td> 
+  </tr>
+  <tr bgcolor="#ece9de" >
+    <td width="710px"><div style="border-style:solid; border-right-color:#CCCCCC;  border-width:1px; border-bottom:none; border-left:none; border-top:none; padding:0; margin:5px 10px 0 0"><table width="680px" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 0 0 5px; ">
+      <tr>
+        <td ><img src="images/top.png" /></td>
+      </tr>
+      <tr>
+        <td class="middletd"><div style="margin:0 20px 0 10px; padding:0" >
+          <table cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="54" align="left" valign="center" bgcolor="#CCCCCC"><div align="center" class="style2"><font size="+4">About Us</font></div></td>
+            </tr>
+            <tr>
+              <td height="290" valign="top" align="left"><p align="justify"> <br />
+                    <img src="images/raviPhoto.jpg" alt="Mr. Ravi Kawade" width="190" height="220" hspace="20" align="left" title="Mr. Ravi Kawade" />                    
+                    <span class="style1">I would like to introduce ourself as a premiere organisation providing <strong>EMPLOYEES PROVIDENT FUND, ESIC, WC(Work Compensation) & Digital Signature</strong> consultancy and services to many organisations of Vidarbha region since last 20+ years. </span></p>
+                <p align="justify" class="style1">On the requests obtained from many firms in and around Vidarbha and other states, we are expanding our services and going online. </p>
+                <p align="justify" class="style1">Now you can modify your firm's data, obtain chalan and other reports just with a few mouse clicks.</p>
+                <p align="center" class="style1"><strong>We are always commited for the better service and open for your suggestions.</strong></p>
+            </td></tr>
+            <tr><td>
+            <table border="0">
+            <tr><td width="318" valign="top" align="center">
+              <span class="style1"><b>Bhandara Office</b><br />
+              Padole Building,<br />In front of Adv. Kolte's house<br />
+              Dr. Radhakrishna Ward<br />
+              Kham Talav Road<br />
+              Bhandara (Maharashtra) 441904</span></td>
+            <td width="318" align="center" valign="top">
+              <span class="style1"><b>Gondia Office</b><br />
+              Flat No. 201,<br />
+              2nd Floor,<br />
+              Maroti Apartment,<br />
+              Angoor Bagicha Road,<br />
+              Gondia (Maharashtra) 441614</span></td>
+            </tr>
+            <tr><td colspan="2" align="center" class="style2"><p>Phone : 09326910406,09372550867<br />
+              email:info@dhawalconsultancy.com, dhawalconsultancy@yahoo.co.in</p>
+                </td>
+            </tr></table></td></tr>
+            <tr>
+              <td height="100" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          </div></td>
+      </tr>
+      <tr>
+        <td><img src="images/bottom.png" /></td>
+      </tr>
+    </table></div></td>
+    <td  width="190" valign="top"><table width="195px" border="0" align="center"cellpadding="0" cellspacing="0" style="margin:5px 5px 0 0">
+      <tr>
+        <td><img src="images/top-login.png" /></td>
+      </tr>
+      <tr>
+        <td class="logmiddle"><div style="margin:0 0px 0 10px; padding:0" >
+          <div class=" login">
+            <div class="login_bk">
+              <p style="text-indent:15px; padding:0px; margin:2px 0 0 0" >Sign in here.</p>
+            </div>
+          </div>
+          <p style="color:#FF0000;font-weight:bold">&nbsp;</p>
+          <p style="vertical-align:top;">Username(email id):</p>
+          <input type="text" id="uid" />
+          <p>Password:</p>
+          <input type="password" id="upwd" />
+          <p id="errmsg" style="color:#FF0000; font-weight:bold">&nbsp; </p>
+            <input type="button" value="  Sign in" class="btn_color" onclick="chklogin()"   />
+          	<span style="color:#FF0000">&nbsp;&nbsp;Forget Password?</span></p>
+          <p style="font-size:10px; font-weight:bold">Sample id:10001 Password:demo</p>
+            
+            </td>
+      </tr>
+      <tr>
+        <td><img src="images/btl-login.png" /></td>
+      </tr>
+      <tr><td>
+      <div style="border:thin #CCCCCC solid; background-color:#CCFF66; text-align:center;" >
+      <p>Contact Us:</p>
+      <p style="font-size:14px;color:red;"><b>Mr. Ravi Kawade</b></p>
+      <p style="font-size:14px;"><b>(M) 09326910406</b></p>
+      <p style="font-size:14px;color:red;"><b>Mr. Vinay Kawade</b></p>
+      <p style="font-size:14px;"><b>(M) 09284502439</b></p>
+      <p><b>Email:</b></p>
+      <p><b>dhawalconsultancy@yahoo.co.in</b></p>
+      </td></tr></div>
+      
+    </table>
+    <table width="195px" border="0" cellpadding="0" cellspacing="0" align="center" style=" visibility:hidden; margin:5px 5px 0 0" >
+      <tr>
+        <td><img src="images/top-login.png" /></td>
+      </tr>
+      <tr>
+        <td class="logmiddle"><div style="margin:0 5px 0 0px; padding:0" >
+             For New User's:<p align="center">
+           <input type="button" value="Create an account >>" class="new_user"  />
+         	</p>
+        </div></td>
+      </tr>
+      <tr>
+        <td><img src="images/btl-login.png" /></td>
+      </tr>
+    </table>    </td>
+  </tr>
+  <tr bgcolor="#ece9de" >
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#205BC8"><p class="site_maint">Developed by Vaikuntha Computers (9890829091)</p>    </td>
+  </tr>
+</table>
+
+<meta name="sitelock-site-verification" content="5510" />
+
+<div style="position: fixed; z-index: 1000; width: 164px; height: 98px; bottom: 15px; right: 15px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=dhawalconsultancy.com','SiteLock','width=600,height=600,left=160,top=170');" ><img class="img-responsive" alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/dhawalconsultancy.com" /></a></div>
+
+
+
+</body>
+</html>

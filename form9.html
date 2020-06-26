@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+td {font-size:12px; font-weight:normal; text-align:left; }
+.td1 { font-size:12px; font-weight:normal; text-align:left; padding-left:5px;}
+.td2 { font-size:12px; font-weight:normal; text-align:center;}
+.td3 { font-size:12px; font-weight:normal; text-align:right;padding-right:5px; }
+.head1 {font-size:16px; font-weight:bold; text-align:center;}
+.head2 {font-size:12px; font-weight:bold; text-align:left;}
+p {text-align:justify; font-size:12px; padding-left:5px; padding-right:5px; padding-top:5px; padding-bottom:5px;}
+.thead {vertical-align:middle; text-align:center;}
+</style>
+
+<title>Form 9</title>
+<script type="text/javascript">
+function getxmlhttp()
+	{
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+		else  
+		{
+		// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+		}
+	}
+
+function showRepo()
+{
+	if(xmlhttp.readyState==4)
+	{
+		var noemp;
+		noemp=0;
+		st=xmlhttp.responseText;
+	//	alert(st);
+		arrmain=st.split("#");
+//		alert(arrmain[0]);alert(arrmain[1]);alert(arrmain[2]);
+		arr1=arrmain[1].split("|");
+		tst=""
+		vtbl = document.getElementById("tbl");
+		for(i=0;i<arr1.length;i++)
+		{
+			arr=arr1[i].split("~");
+			r=vtbl.insertRow(-1);
+			r.height="30px"
+			c=r.insertCell(0);c.className='td3';c.innerHTML=i+1;
+			c=r.insertCell(1);c.className='td3';c.innerHTML=arr[0];
+			c=r.insertCell(2);c.className='td1';c.innerHTML=arr[1];
+			c=r.insertCell(3);c.className='td2';c.innerHTML=arr[2];
+			c=r.insertCell(4);c.className='td2';c.innerHTML=arr[3];
+			c=r.insertCell(5);c.className='td2';c.innerHTML=arr[4];
+			c=r.insertCell(6);c.className='td2';c.innerHTML=arr[5];
+			c=r.insertCell(7);c.className='td2';c.innterhtml="";
+			
+			c=r.insertCell(8);c.className='td2';c.innerHTML=arr[6];
+			c=r.insertCell(9);c.className='td2';c.innerHTML=arr[7];
+			c=r.insertCell(10);c.className='td2';c.innerHTML="";
+		}
+		noemp = i;
+		arr=arrmain[0].split("~");
+		document.getElementById("sign").innerHTML="For "+arr[0];				
+		document.getElementById("cocode").innerHTML="Co. Code: "+arr[2];				
+		document.getElementById("conamaddr").innerHTML=arr[0]+" ,"+arr[1];
+		document.getElementById("cocode1").innerHTML=arr[2];				
+/*		document.getElementById("epfdate").innerHTML=arr[2];	
+		document.getElementById("epsdate").innerHTML=arr[2]; */
+//		alert(arrmain[2]);
+		arr1 = arrmain[2].split("|");
+		for(i=0;i<arr1.length;i++)
+		{
+			arr=arr1[i].split("~");
+//			alert(arr[0]);
+			vid1="c"+(i+1)+"1";vid2="c"+(i+1)+"2";
+			document.getElementById(vid1).innerHTML=arr[0];
+			document.getElementById(vid2).innerHTML=arr[1];
+		}
+		document.getElementById("noemp").innerHTML=noemp;
+	}
+}
+</script>
+
+</head>
+
+<body>
+<div style="page-break-after:always; border:thin; width:950px"  align='center'>
+<table border="0" width="100%">
+	<tr style="font-size:xx-small">
+        <td width="33%"></td><td width="34%"></td><td width="33%"></td>
+	</tr>
+    <tr height="15px">
+        <td colspan="3" style="text-align:center; font-size:large; font-weight:bold">Form 9</td></tr>
+    <tr>
+    <td colspan="2">Name and Address of Establishment:<span id='conamaddr'></span></td>
+    <td>Code No.:<span id="cocode1"></span></td></tr>
+    <tr><td>Date of Coverage-:<span id="cdate"></span></td>
+    <td>Date from which E.P.F.is applicable-:<span id='epfdate'></span></td>
+    <td>Date from which E.P.S.is applicable-:<span id='epsdate'></span></td></tr>
+    <tr><td>&nbsp;</td><td class="td1" colspan="2">Estt is covered under E.S.I.Act-:</td></tr>
+    <tr><td class="td2" colspan="3" style="font-weight:bold;">Speciman Signature of the Employer</td></tr>    
+    
+</table>
+<table border="1" width="100%" cellpadding="0" cellspacing="0">
+<tr><td class="td2" width="5%">S.N.</td><td class="td2" width="40%">Name</td>
+<td class="td2" width="20%">Designation</td><td class="td2" width="20%">Speciman Signature</td><td class="td2" width="15%">Remark</td></tr>
+<script type="text/javascript">
+st="";
+for(i=1;i<=7;i++)
+{
+	st=st+"<tr><td class='td2'>"+i+"</td>"
+	vid = ("c"+i+"1");st=st+"<td class='td1' id='"+vid+"'></td>"
+	vid = ("c"+i+"2");st=st+"<td class='td2' id='"+vid+"'></td>"
+	vid = ("c"+i+"3");st=st+"<td class='td2' id='"+vid+"'></td>"
+	vid = ("c"+i+"4");st=st+"<td class='td2' id='"+vid+"'></td></tr>"
+}
+document.write(st);
+</script>
+</table>
+<table border="0" width="100%">
+<tr><td width="50%">No of employees enrolled as memeber on the date of coverage-:<span id='noemp'></span></td><td width="50%">&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td class="td2"><span id='coname'></span></td></tr>
+<tr><td class="td1" style="font-weight:bold">Instructions</td><td>&nbsp;</td></tr>
+<tr><td class="td1">1) On receipt of the Form-9 the certificate given should be completed.</td>
+<td class="td2">Authorised Signatory</td></tr>
+<tr><td class="td1" colspan="2">2) Form 9 should be audited and accepted as instructed in para 56 to 58 of Manual of Procedure (Volume 1)</td></tr>
+<tr><td class="td1" colspan="2">3) On acceptance of Form-9 Leger card / Folio should be opened and the machine No. entered against each Account No. Simultaneously entries in Form-9 and ledger card should be attesed by Head Clerk.</td></tr>
+<tr><td class="td1" colspan="2">4) The names of employees who become member of the EPF /E.P.S. Scheme after the date of coverage will be entered in this form with reference to Form-5 received monthly from the establishment.</td></tr>
+<tr><td class="td1" colspan="2">5)Receipt of Form-2 should be ensured in respect of all the member enrolled through Form9/5</td></tr>
+<tr><td class="td1" colspan="2">6) In case of retrospective coverage of an Establishment, the E.P.S. Scheme is applicable only from a prospective date as indicated in the coverage memo while setting P.S. Claims the date of commencement of racknoable service should be verified from the ledger card.</td></tr>
+<tr><td class="td1" colspan="2">7) The date / reason for j having service of member as reported through Form 10 should be linked in the Form-9 and the receipt of Form-A should be ensured Similarly, date of re-joining or transfer should be noted in Form-9 under attestation of Head clerk.</td></tr>
+<tr><td class="td1" colspan="2">8) On no account the folios of Form-9 should be removed.</td></tr>
+<tr><td class="td1" colspan="2">9) Form-9 should be kept under lock and key when not in use.</td></tr>
+<tr><td class="td1" colspan="2">10) As and when an account is setting the account no rounded and remarks of setting of account should be made over the dated initial oa Accounts Officer by drawing a horizontal line with the words EPF A/c, closed P.S. A/c closed, DLI A/c,closed, as the case may be.</td></tr>
+<tr><td class="td1" colspan="2">11) The remarks column (No.12 may be utilised for recording the P.I. No. also.</td></tr>
+<tr><td class="td2" colspan="2" style="font-weight:bold">Certificate</td></tr>
+<tr><td class="td1" colspan="2">
+<pre style="font-size:12px;">
+1) Certified that this book contains                        folios                       from S.I. No.               to   </pre></td></tr>
+<tr><td class="td1" colspan="2">2) Certified that the allready Form 9, From3 (FPF) have been cancelled and kept in safe custody.</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2">
+<pre style="font-size:12px; font-weight:bold">
+   Clerk                                                 S.S.                                                 Accounts Officer</pre></td></tr>
+<tr><td colspan="2" style="text-align:right; padding-right:150px;">Date :</td></tr>
+</table>
+</div>
+<!-- Next page 
+-->
+<div style="page-break-after:always; border:thin; width:950px"  align='center'> 
+<table width="100%" cellpadding=0 cellspacing=0 style='border-collapse:collapse;table-layout:fixed;'>
+    <tr height="1px"><td width="260"></td><td width="222"></td><td width="188"></td></tr>
+    <tr><td colspan="3" class='head1'>The Employees Providend Fund Scheme, 1952</td></tr>
+    <tr><td colspan="3" class='head1'>The Employees Pension Scheme, 1952</td></tr>
+    <tr height="50px" valign="middle">
+    <td class="head2" id="cocode">Code No.:</td><td class="head2">Form No. 9 (Revised)</td>
+    <td class="head2">Folio No.:</td></tr>
+ </table>
+ <table width="100%" id='tbl' border="1" style="border-collapse:collapse; table-layout:fixed;">
+    <tr><td width="5%" class="td2">S.N.</td>
+    <td width="5%" class="td2">Acc.no.</td>
+    <td width="25%" class="td2" >Full Name of the Employee</td>
+    <td width="9%" class="td2">Date of Birth</td>
+    <td width="5%" class="td2">Sex</td>
+    <td width="9%"  class="td2" >Date of Joining Provident Fund</td>
+    <td width="9%" class="td2" >Date of Joining Pension Scheme</td>
+    <td width="5%" class="td2" >Initials of H.C.</td>
+    <td width="9%" class="td2" >Date of Leaving the Service</td>
+    <td width="9%" class="td2" >Reason of Leaving the service</td>
+    <td width="10%" class="td2" >Remark and initials on sattlement D.C. H.C.A.O.E.P.F. Pension EDLI</td>
+    </tr>
+</table>
+<table border="0" width="100%" >
+    <tr ><td class="td2" style="padding-left:300px; vertical-align:top" id='sign'>&nbsp;</td></tr>
+    <tr ><td class="td2" style="padding-left:300px; vertical-align:top">&nbsp;</td></tr>
+ 
+    <tr ><td class="td2" style="padding-left:300px; vertical-align:bottom">Authorised Signatory</td></tr>
+</table>
+  
+</div>
+<script type="text/javascript">
+	var xmlhttp;
+	var p_r=0;
+	getxmlhttp();
+//	alert("A");
+	temp = "n="+Math.random()+"&vcnt=7"
+	xmlhttp.onreadystatechange=showRepo;
+	xmlhttp.open("POST","repoajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+//	alert("b");
+</script>
+        
+</body>
+
+</body>
+</html>

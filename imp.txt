@@ -1,0 +1,2 @@
+username : vaico112_dbadmin 
+pwd : test_23

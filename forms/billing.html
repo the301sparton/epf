@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Billing</title>
+<script src="js/numToword.js" language="javascript"></script>
+<script type="text/javascript" src="js/datepickercontrol.js"></script>
+<link type="text/css" rel="stylesheet" href="css/datepickercontrol.css"> 
+<script type="text/javascript">
+	var xmlhttp;
+	function getxmlhttp()
+	{
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	}
+	else  
+	{
+	// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  }
+	}
+	
+function listbill()
+{   
+/*	pg=document.getElementById("pgno").value
+	if(pgno==1)
+	{
+		recno=1
+	}
+	else
+	{
+		recno = (pg-1)*10+1
+	}*/
+	getxmlhttp();
+	vcono=window.parent.fcono
+	temp="&cono="+vcono
+	temp = "n="+Math.random()+temp+"&vcnt=8";
+//	alert(temp)
+	xmlhttp.onreadystatechange=showRec;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send(temp); 
+}
+
+function showRec()
+{
+	if(xmlhttp.readyState==4)
+	{
+		st=xmlhttp.responseText;
+//		alert(st);
+		arr=st.split("|");
+		st="<table id='dlist' border='0' cellpadding='5' cellspacing='0'>"
+		st=st+"<tr><th width='50' class='list_back'><div align='center' class='style1'>Bill.No.</div></th>"
+		st=st+"<th width='313' class='list_back'><div align='center' class='style1'>B.Date</div></th>"
+		st=st+"<th width='100' class='list_back'> <div align='center' class='style1'>Amount</div></th>"
+		st=st+"<th width='60' class='list_back'> <div align='center' class='style1'>edit</div></th>"
+		st=st+"<th width='60' class='list_back' style='visibility:hidden' > <div align='center' class='style1' >Pwd</div></th></tr>"
+		
+		for(i=0;i<arr.length;i++)
+		{
+			row=arr[i].split("~")
+//				alert(row[0])
+			if(row[0]=="") continue;
+			tamt = parseInt(row[3])+parseInt(row[4])+parseInt(row[5]);
+			st=st+"<tr style='background-color:#DDFFFF;min-height:30px;'>"
+			st=st+"<td align='right' id='c"+i+"0'>"+row[1]+"</td><td id='c"+i+"1' align='center' >"+row[2]+"</td>"
+			st=st+"<td id='c"+i+"2'>"+tamt+"</td>"
+			st=st+"<td id='c"+i+"3'><input type='button' value='Edit' onclick='editrec("+i+")'</td>"
+			st=st+"<td id='c"+i+"5' style='visibility:hidden'  >"+row[0]+"</td>"
+			st=st+"<td id='c"+i+"6' style='visibility:hidden'  >"+row[3]+"</td>"
+			st=st+"<td id='c"+i+"7' style='visibility:hidden'  >"+row[4]+"</td>"
+			st=st+"<td id='c"+i+"8' style='visibility:hidden'  >"+row[5]+"</td>"
+			st=st+"<td id='c"+i+"9' style='visibility:hidden'  >"+row[6]+"</td>"
+			st=st+"<td id='c"+i+"10' style='visibility:hidden'  >"+row[7]+"</td>"
+			st=st+"<td id='c"+i+"11' style='visibility:hidden'  >"+row[8]+"</td>"
+			st=st+"<td id='c"+i+"12' style='visibility:hidden'  >"+row[9]+"</td>"
+		}
+		st=st+"</table>"
+		document.getElementById("tlist").innerHTML=st		
+		document.getElementById("tlist").style.visibility="visible";
+	}
+}
+function editrec(i)
+{
+	vid = "c"+i
+	document.getElementById("billno").innerHTML="B.N.:"+document.getElementById(vid+'0').innerHTML;
+	document.getElementById("bdate").value=document.getElementById(vid+'1').innerHTML;
+	document.getElementById("billid").value=document.getElementById(vid+'5').innerHTML;
+	document.getElementById("nserch").value=document.getElementById(vid+'6').innerHTML;
+	document.getElementById("nconch").value=document.getElementById(vid+'7').innerHTML;
+	document.getElementById("nothch").value=document.getElementById(vid+'8').innerHTML;
+	document.getElementById("tserch").value=document.getElementById(vid+'9').innerHTML;
+	document.getElementById("tconch").value=document.getElementById(vid+'10').innerHTML;
+	document.getElementById("tothch").value=document.getElementById(vid+'11').innerHTML;
+	document.getElementById("remark").value=document.getElementById(vid+'12').innerHTML;
+	document.getElementById("tot").innerHTML=document.getElementById(vid+'2').innerHTML;
+		document.getElementById("tlist").style.visibility="hidden";
+}
+function savebill()
+{
+	getxmlhttp();
+	dt = document.getElementById("bdate").value;
+	ch1= document.getElementById("nserch").value;
+	ch2= document.getElementById("nconch").value;
+	ch3= document.getElementById("nothch").value;
+	dtl3=document.getElementById("tothch").value;
+	dtl1=document.getElementById("tserch").value;
+	dtl2=document.getElementById("tconch").value;
+	rem = document.getElementById("remark").value;
+	vcono=window.parent.fcono
+	vbillid = document.getElementById("billid").value;
+	temp="&cono="+vcono+"&ch1="+ch1+"&ch2="+ch2+"&ch3="+ch3+"&dtl3="+dtl3+"&billid="+vbillid+"&dt="+dt;
+	
+	temp=temp+"&dtl1="+dtl1+"&dtl2="+dtl2+"&rem="+rem;
+ 	temp = "n="+Math.random()+temp+"&vcnt=6"
+//	alert(temp)
+	xmlhttp.onreadystatechange=chkres;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+function chkres()
+{
+	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		if(xmlhttp.responseText==0)
+		{
+			alert("Bill Saved")
+		}
+		else
+		{
+			alert("Failed to save");
+		}
+	}
+}
+function gettot()
+{
+	vtot = parseInt(document.getElementById("nserch").value) + parseInt(document.getElementById("nconch").value) + parseInt(document.getElementById("nothch").value);
+	document.getElementById("tot").innerHTML=vtot;
+}
+function clrbill()
+{
+	document.getElementById("nserch").value="";
+	document.getElementById("nconch").value="";
+	document.getElementById("nothch").value="";
+	document.getElementById("tothch").value="Other Charges";
+	document.getElementById("tconch").value="Consultancy Charges";
+	document.getElementById("tserch").value="Service Charges for the month ";
+	document.getElementById("remark").value="";
+}
+function delbill()
+{
+	getxmlhttp();
+	vbillid = document.getElementById("billid").value;
+	temp="&billid="+vbillid;
+ 	temp = "n="+Math.random()+temp+"&vcnt=7"
+//	alert(temp)
+	xmlhttp.onreadystatechange=chkres1;
+	xmlhttp.open("POST","colistajax.php",true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+	xmlhttp.send(temp); 
+}
+function chkres1()
+{
+	if(xmlhttp.readyState==4)
+	{
+//		alert(xmlhttp.responseText);
+		if(xmlhttp.responseText==0)
+		{
+			alert("Receipt deleted")
+		}
+		else
+		{
+			alert("Failed to Delete");
+		}
+	}
+}
+function printbill()
+{
+//	var w = window.open("printbill.html");
+//	var doc = w.contentWindow.document;
+	
+	var doc = document.getElementById("prnbill").contentWindow.document;
+	vtot = parseInt(document.getElementById("tot").innerHTML);
+//	alert(doc.getElementById("bdate").innerHTML);
+	var dt = document.getElementById("bdate").value;
+//	alert(dt);
+	dta = dt.split("-");
+	ndt = dta[2]+"/"+dta[1]+"/"+dta[0];
+	
+	doc.getElementById("bdate").innerHTML="Date: "+ndt;	
+	doc.getElementById("billno").innerHTML=document.getElementById("billno").innerHTML
+	doc.getElementById("ch1").innerHTML=document.getElementById("nserch").value
+	doc.getElementById("ch2").innerHTML=document.getElementById("nconch").value
+	doc.getElementById("ch3").innerHTML=document.getElementById("nothch").value
+	doc.getElementById("dtl1").innerHTML=document.getElementById("tserch").value
+	doc.getElementById("dtl2").innerHTML=document.getElementById("tconch").value
+	doc.getElementById("dtl3").innerHTML=document.getElementById("tothch").value
+	doc.getElementById("remark").innerHTML=document.getElementById("remark").value
+	doc.getElementById("tot").innerHTML=document.getElementById("tot").innerHTML
+	doc.getElementById("coname").innerHTML=document.getElementById("coname").value
+	doc.getElementById("inwords").innerHTML=inwords(vtot);
+//	w.focus();w.print();
+	document.getElementById("prnbilldiv").style.visibility="visible";
+	printit();
+}
+function printit()
+{
+//	var w = window.open("printbill.html");
+//	var doc = document.getElementById("prnbill").innerHTML
+//	alert(doc)
+//alert(document.getElementById("prnbill").src);
+//	w.focus();
+//	w.print(); 
+	window.frames("prnbill").focus();
+	window.frames("prnbill").print();
+}
+</script>
+</head>
+<body>
+<table width="574" height="267" border="1">
+  <tr valign="middle">
+    <td width="256" height="44" >date:
+    <input type="text" name="bdate" id="bdate" size="10" datepicker="true" datepicker_format="YYYY-MM-DD">
+    <span id='billno' style="width:150px;">B.N.:</span>
+    <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <font size="-2">(yyyy-mm-dd)</font>	<input type="text" ID="billid" value="0" style="visibility:hidden;" />
+ </td>
+    <td width="302" height="44" align="left">Company Name : 
+      <input name="coname" type="text" disabled="disabled" id="coname" size="40" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" align="center" colspan="2">
+    <table border="0">
+    <tr ><td style="border:thin";> Particulars</td>
+    <td style="border:thin;">Amount</td></tr>
+    <tr><td width="315" height="31" align="left" valign="top">
+    <input type="text"  size="60" id="tserch" value="Service Charges for the month " /></td>
+    <td valign="top"><input type="text"  id="nserch" value="0" size="10" onblur="gettot()" /></td></tr>
+    <tr><td width="315" height="26" align="left" valign="top">
+    <input type="text" size="60" id="tconch"  value="Consultancy Charges" /></td>
+    <td valign="top"><input type="text"  id="nconch" value="0" size="10" onblur="gettot()" /></td></tr>
+    <tr><td width="315" height="30" align="left" valign="top">
+    <input type="text" size="60" id="tothch" value="Other Charges" /></td>
+    <td valign="top"><input type="text"  id="nothch" value="0" size="10" onblur="gettot()" /></td></tr>
+    <tr><td>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total :</span>
+    <td style="border:thin;" valign="bottom"><span id='tot' style="text-align:left"></span>
+    </td></tr>
+    <tr><td colspan="2">Remark :&nbsp;<input type="text" id="remark" size="60" /></td></tr>
+	<tr><td style="border:thin;" valign="bottom">
+    <input type="button" value="Save" onclick="savebill()" />
+    <input type="button" value="Clear" onclick="clrbill()" />
+    <input type="button" value="List" onclick="listbill()" />
+    <input type="button" value="Delete" onclick="delbill()" />
+    <input type="button" value="Print" onclick="printbill()" />
+    </td>
+    </table>
+  </td></tr>
+</table>
+<div id="tlist" style="visibility:hidden;"></div>
+<div id="prnbilldiv" style="visibility:hidden">
+<iframe id="prnbill" src="printbill.html" width="650px" height="500px" frameborder="0" class="bck"  scrolling="no"></iframe>
+</div>
+
+<script type="text/javascript">
+document.getElementById("coname").value=window.parent.fcnam
+</script>
+</body>
+</html>
