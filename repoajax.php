@@ -74,7 +74,7 @@
 		{
 		 die('Could not connect: ' . mysql_error());
 		}
-		mysql_select_db("vaico112_epf", $con);
+		mysql_select_db("u353330278_epf", $con);
 		return $con;
 	} 
 function chalan()
@@ -125,6 +125,9 @@ function monlist()
 	$st= "select `sname`,`pfno`,`uanno`,`wages`,`share1`,`share2`,`pension` from monlist where `cono`=".$cono." and `month`='".$mon."' and `fyyear`=".$fyyr ;
 //echo $st;exit;
 // mysql_select_db("vaico112_epf", $con);
+mysql_select_db("u353330278_epf", $con);
+
+
 	$res=mysql_query($st,$con);
 	print_r($res);   
 	$st=$_SESSION['co']->cname."~".$_SESSION['co']->addr."~".$_SESSION['co']->epfno;
