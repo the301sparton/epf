@@ -124,7 +124,7 @@ function monlist()
 	$con=connect();
 	$st= "select `sname`,`pfno`,`uanno`,`wages`,`share1`,`share2`,`pension` from monlist where `cono`=".$cono." and `month`='".$mon."' and `fyyear`=".$fyyr ;
 //echo $st;exit;
-// mysql_select_db("vaico112_epf", $con);
+// // mysql_select_db("vaico112_epf", $con);
 // mysql_select_db("u353330278_epf", $con);
 
 

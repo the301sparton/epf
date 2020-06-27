@@ -180,7 +180,7 @@
 			$sernam="%";
 		else
 			$sernam=$sernam."%";
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$flag=0;
 		if(!(strlen($mon)==0 || strlen($yr)==0)) 
 		{
@@ -297,7 +297,7 @@
 		$empno = $_POST['empno'];
 		$st = "select * from master where cono=".$cono." and empno=".$empno;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$res=mysql_query($st,$con);
 		
 		if(($row=mysql_fetch_array($res)))
@@ -327,7 +327,7 @@
 		$cono=$_SESSION['co']->cono;
 		$nflds=count($_POST)-1;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$res = mysql_query("describe master",$con);
 		$dtype=array();$dvalue=array();
 		while($row=mysql_fetch_array($res))
@@ -359,7 +359,7 @@
 		$cono=$_SESSION['co']->cono;
 		$nflds=count($_POST)-2;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		
 		$res = mysql_query("describe master",$con);
 		$dtype=array();$dvalue=array();

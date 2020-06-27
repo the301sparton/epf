@@ -35,7 +35,7 @@ include_once("Comp.php");
 	function listbill()
 	{
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$cono = $_POST['cono'];
 		$st="select billid,billno,bdate,amt1,amt2,amt3,dtl3,dtl2,dtl1,remark from bill where cono=" .$cono;
 		$st=$st. " ORDER BY `bdate` DESC ";
@@ -63,7 +63,7 @@ include_once("Comp.php");
 	function delbill()
 	{
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$billid=$_POST['billid'];
 		$st="delete from bill where billid=".$billid;	
 		if(mysql_query($st,$con))
@@ -75,7 +75,7 @@ include_once("Comp.php");
 	function saveBill()
 	{
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$cono=$_POST['cono'];
 		$billid=$_POST['billid'];
 		$dtl1="Service Charges";$dtl2="Consultancy Charges";
@@ -126,7 +126,7 @@ include_once("Comp.php");
 	function saveCo()
 	{
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		$cono=$_POST['cono'];
 		$st="select cono from co where cono=".$cono . " and `delflag`=0";
 //		echo $st;
@@ -196,7 +196,7 @@ include_once("Comp.php");
 		$cono=$_POST['cono'];
 		$pwd = $_POST['pwd'];
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		if($_SESSION["user"]=="Super User")
 		{	$id="suravi"; 
 			$st="select `password` from `susers` where `id` ='".$id."'";
@@ -233,7 +233,7 @@ include_once("Comp.php");
 		$cono=$_POST['cono'];
 		$st="select `cono`,`cname`,`addr`,`epfno`,`ESIC`,`epfrate`,`penrate`,`estddate`,`phone`,`email` from `co` where `cono`=".$cono ." and `delflag`=0";
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		if(!($res=mysql_query($st,$con)))
 		{
 			echo -1;
@@ -288,7 +288,7 @@ include_once("Comp.php");
 		$st=$st." and `cname` like '".$conam."' limit ".$recno.", 10";
 //		echo $st;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		if(!($res=mysql_query($st,$con)))
 		{
 			echo "-";

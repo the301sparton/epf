@@ -60,7 +60,7 @@
 		}
 //		echo $st;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 
 		if(!(mysql_query($st,$con)))
 		{
@@ -77,7 +77,7 @@
 		$vid=$_POST['id'];
 		$con=connect();
 		$st="delete from paidchalan where `id`=".$vid;
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 
 		if(!(mysql_query($st,$con)))
 		{
@@ -98,7 +98,7 @@
 		$st="select * from `paidchalan` where `cono`=".$cono." and `fyyear`=".$vfyyr;
 //		echo $st;
 		$con=connect();
-		mysql_select_db("vaico112_epf", $con);
+		// mysql_select_db("vaico112_epf", $con);
 		if(!($res=mysql_query($st,$con)))
 		{ 
 			echo "-";
