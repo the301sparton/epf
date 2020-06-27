@@ -123,7 +123,7 @@ function monlist()
 //	$cono=1;
 	$con=connect();
 	$st= "select `sname`,`pfno`,`uanno`,`wages`,`share1`,`share2`,`pension` from monlist where `cono`=".$cono." and `month`='".$mon." and `fyyear`=".$fyyr ;
-//echo $st;exit;
+echo $st;exit;
 	$res=mysql_query($st,$con);
 	print_r($res);
 	$st=$_SESSION['co']->cname."~".$_SESSION['co']->addr."~".$_SESSION['co']->epfno;
