@@ -145,6 +145,52 @@ function monlist()
 	}
 	echo $st;
 }
+function exportdata()
+{ 
+	$path= $_SERVER['DOCUMENT_ROOT'];
+	$mon = $_POST['mon'];
+	$fyyr=$_POST['fyyr'];$cono=$_SESSION['co']->cono;
+		if($mon=="Jan" || $mon=="Feb")
+			$year=$fyyr+1;
+		else
+			$year=$fyyr;
+	$ofname = $mon.$year."_".$cono.".txt";
+	$fname = "export/".$ofname;
+	$fname=strtolower($fname);
+	$_SESSION['dfname']=$fname;
+//	echo $fname;
+//	return;
+	$st = "select monthly.month, monthly.fyyear, master.pfno, master.sname, monthly.wages, monthly.share1,";
+	$st=$st." monthly.pension, monthly.share2, master.fname, master.bdate, master.sex, master.jdate_epf,";
+	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
+	$st=$st." and monthly.cono=".$cono." and monthly.month='".$mon."' and monthly.fyyear=".$fyyr;
+	$con = connect();
+
+	$res=mysql_query($st,$con);
+	$n=0;
+//	echo $st;
+//	return;
+	$file = fopen($fname,"w+");
+	while($row=mysql_fetch_array($res))
+	{
+		$nst="";
+		$pfno=$row['pfno'];
+		 	$nst=$row['uanno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['wages']."#~#".($row['wages']>15000?15000:$row['wages'])."#~#".$row['share1']."#~#";
+		$nst=$nst.$row['pension']."#~#".$row['share2']."#~#0#~#0";
+		$nst=$nst."\r\n";
+		echo $nst;
+		fwrite($file,$nst);
+	}
+	fclose($file);
+	// Read and write for owner, read for everybody else
+	chmod($fname, 0644);
+
+	echo $fname;
+//	return;
+//header('Location: ftp://'.$fname);
+ }
+
+
 function form12a()
 {
 	$mon=$_POST['mon'];$fyyr=$_POST['fyyr'];$cono=$_SESSION['co']->cono;
@@ -542,93 +588,6 @@ function form12a()
 	echo $fname;
 }
 
-function exportdata()
-{ 
-	$path= $_SERVER['DOCUMENT_ROOT'];
-	$mon = $_POST['mon'];
-	$fyyr=$_POST['fyyr'];$cono=$_SESSION['co']->cono;
-		if($mon=="Jan" || $mon=="Feb")
-			$year=$fyyr+1;
-		else
-			$year=$fyyr;
-	$ofname = $mon.$year."_".$cono.".txt";
-	$fname = "export/".$ofname;
-	$fname=strtolower($fname);
-	$_SESSION['dfname']=$fname;
-//	echo $fname;
-//	return;
-	$st = "select monthly.month, monthly.fyyear, master.pfno, master.sname, monthly.wages, monthly.share1,";
-	$st=$st." monthly.pension, monthly.share2, master.fname, master.bdate, master.sex, master.jdate_epf,";
-	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
-	$st=$st." and monthly.cono=".$cono." and monthly.month='".$mon."' and monthly.fyyear=".$fyyr;
-	$con = connect();
-
-	$res=mysql_query($st,$con);
-//	print_r($res);   
-//	$st=$_SESSION['co']->cname."~".$_SESSION['co']->addr."~".$_SESSION['co']->epfno;
-//	$n=1;
-
-
-
-
-//	$sql = $con->prepare($st);
-//	$sql->execute(array($cono,$mon,$fyyr));
-	$n=0;
-//	echo $st;
-//	return;
-	$file = fopen($fname,"w+");
-	while($row=mysql_fetch_array($res))
-//	while($row=$sql->fetch())
-	{
-		$nst="";
-	/*	$nst=$row['pfno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['share1']."#~#";
-		$nst=$nst.$row['share1']."#~#".$row['pension']."#~#".$row['pension']."#~#".$row['share2']."#~#";
-		$nst=$nst.$row['share2']."#~#0#~#0#~#0#~#0#~#0#~#0";
-		if($mon=="Jan" || $mon=="Feb")
-			$year=$fyyr+1;
-		else
-			$year=$fyyr;
-		$dt = date_parse($row['jdate_epf']);
-		
-		if($dt['month']==monno($mon) && $dt['year']==$year)
-		{
-			$bdt=new DateTime($row['bdate']);$jdt=new DateTime($row['jdate_epf']);
-			$nst=$nst."#~#".$row['fname']."#~#".$row['relationship']."#~#".$bdt->format("d/m/Y")."#~#".$row['sex'];
-			$nst=$nst."#~#".$jdt->format("d/m/Y")."#~#".$jdt->format("d/m/Y");
-		}
-		else
-		{
-			$nst=$nst."#~##~##~##~##~##~#";
-		}
-		$dt = date_parse($row['l_date']);
-		if($dt['month']==monno($mon) && $dt['year']==$year)	
-		{
-			$ldt=new DateTime($row['l_date']);
-			$nst=$nst."#~#".$ldt->format("d/m/Y")."#~#".$ldt->format("d/m/Y")."#~#".$row['l_reason'];
-		}
-		else
-		{
-			$nst=$nst."#~##~##~#";
-		}
-		$nst=$nst."\r\n";
-	*/	
-//		echo $nst."*****";
-		$pfno=$row['pfno'];
-	//	$pfno=($row['uanno']>0)?$row['uanno']:$row['pfno'];	
-		 	$nst=$row['uanno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['wages']."#~#".($row['wages']>15000?15000:$row['wages'])."#~#".$row['share1']."#~#";
-		$nst=$nst.$row['pension']."#~#".$row['share2']."#~#0#~#0";
-		$nst=$nst."\r\n";
-		
-		fwrite($file,$nst);
-	}
-	fclose($file);
-	// Read and write for owner, read for everybody else
-	chmod($fname, 0644);
-
-	echo $fname;
-//	return;
-//header('Location: ftp://'.$fname);
- }
 
 function is_date( $str ) 
 { 
