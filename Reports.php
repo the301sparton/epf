@@ -272,7 +272,7 @@ function exportdata()
 
 	temp = "n="+Math.random()+temp+"&vcnt=9"
 
-//		alert(temp);
+		alert(temp);
 
 	xmlhttp.onreadystatechange=showmsg;
 

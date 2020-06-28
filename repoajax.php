@@ -555,8 +555,8 @@ function exportdata()
 	$fname = "export/".$ofname;
 	$fname=strtolower($fname);
 	$_SESSION['dfname']=$fname;
-//	echo $fname;
-//	return;
+	echo $fname;
+	return;
 	$st = "select monthly.month, monthly.fyyear, master.pfno, master.sname, monthly.wages, monthly.share1,";
 	$st=$st." monthly.pension, monthly.share2, master.fname, master.bdate, master.sex, master.jdate_epf,";
 	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
@@ -608,7 +608,7 @@ function exportdata()
 		 	$nst=$row['uanno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['wages']."#~#".($row['wages']>15000?15000:$row['wages'])."#~#".$row['share1']."#~#";
 		$nst=$nst.$row['pension']."#~#".$row['share2']."#~#0#~#0";
 		$nst=$nst."\r\n";
-
+		
 		fwrite($file,$nst);
 	}
 	fclose($file);

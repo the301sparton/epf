@@ -4,6 +4,7 @@
 //echo $file;
 //return;
 $file=$_SESSION['dfname'];
+echo $file;
 if (file_exists($file)) {
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
