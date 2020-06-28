@@ -62,15 +62,24 @@ function datediff($ldt,$jdt)
 	$diff1->y=$y1-$y2;
 	return $diff1;
 }
-
-
+/*
+function connect()
+	{
+		$con = mysql_connect("localhost","u353330278_epfAdmin","test_123","u353330278_epf");
+		if (!$con)
+		{
+		 die('Could not connect: ' . mysql_error());
+		}
+		mysql_select_db("u353330278_epf", $con);
+		return $con;
+	} */
 		
 function connect()
 {
 	$dbhost     = "localhost";  
-	$dbname     = "vaico112_epf";  
-	$dbuser     = "vaico112_dbadmin";  
-	$dbpass     = "test_23";  
+	$dbname     = "u353330278_epf";  
+	$dbuser     = "u353330278_epfAdmin";  
+	$dbpass     = "test_123";  
 	
 	//	$con = mysql_connect("localhost","root","");
 	$con = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
@@ -79,7 +88,7 @@ function connect()
 	 die('Could not connect: ' . mysql_error());
 	}
 	return $con;
-}
+} 
 $cnt=$_POST['vcnt'];
 //echo $cnt;
 if($cnt==106)

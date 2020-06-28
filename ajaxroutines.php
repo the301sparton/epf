@@ -48,9 +48,9 @@
 		$p=$marr[$st];
 		return $p;
 	}
- 	function connect()
+	function connect()
 	{
-		$con = mysql_connect("localhost","u353330278_epfAdmin","test_123");
+		$con = mysql_connect("localhost","u353330278_epfAdmin","test_123","u353330278_epf");
 		if (!$con)
 		{
 		 die('Could not connect: ' . mysql_error());
