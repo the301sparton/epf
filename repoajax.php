@@ -165,10 +165,10 @@ function exportdata()
 	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
 	$st=$st." and monthly.cono=".$cono." and monthly.month='".$mon."' and monthly.fyyear=".$fyyr;
 	$con = connect();
-	echo "xx";
+//	echo "xx";
 	$res=mysql_query($st,$con);
 	$n=0;
-	echo $st;
+//	echo $st;
 //	return;
 	$file = fopen($fname,"w+");
 	while($row=mysql_fetch_array($res))
@@ -178,7 +178,7 @@ function exportdata()
 		 	$nst=$row['uanno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['wages']."#~#".($row['wages']>15000?15000:$row['wages'])."#~#".$row['share1']."#~#";
 		$nst=$nst.$row['pension']."#~#".$row['share2']."#~#0#~#0";
 		$nst=$nst."\r\n";
-		echo $nst;
+//		echo $nst;
 		fwrite($file,$nst);
 	}
 	fclose($file);
