@@ -165,10 +165,10 @@ function exportdata()
 	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
 	$st=$st." and monthly.cono=".$cono." and monthly.month='".$mon."' and monthly.fyyear=".$fyyr;
 	$con = connect();
-
+	echo "xx";
 	$res=mysql_query($st,$con);
 	$n=0;
-//	echo $st;
+	echo $st;
 //	return;
 	$file = fopen($fname,"w+");
 	while($row=mysql_fetch_array($res))
