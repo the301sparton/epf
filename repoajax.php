@@ -74,7 +74,7 @@
 		{
 		 die('Could not connect: ' . mysql_error());
 		}
-		mysql_select_db("u353330278_epf", $con);
+	//	mysql_select_db("u353330278_epf", $con);
 		return $con;
 	} 
 function chalan()
