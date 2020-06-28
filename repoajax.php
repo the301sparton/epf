@@ -129,7 +129,7 @@ function monlist()
 
 
 	$res=mysql_query($st,$con);
-	print_r($res);   
+//	print_r($res);   
 	$st=$_SESSION['co']->cname."~".$_SESSION['co']->addr."~".$_SESSION['co']->epfno;
 	$n=1;
 	while($row=mysql_fetch_array($res))
@@ -555,20 +555,30 @@ function exportdata()
 	$fname = "export/".$ofname;
 	$fname=strtolower($fname);
 	$_SESSION['dfname']=$fname;
-	echo $fname;
-	return;
+//	echo $fname;
+//	return;
 	$st = "select monthly.month, monthly.fyyear, master.pfno, master.sname, monthly.wages, monthly.share1,";
 	$st=$st." monthly.pension, monthly.share2, master.fname, master.bdate, master.sex, master.jdate_epf,";
 	$st=$st." master.l_date, master.l_reason,master.uanno from master,monthly where master.srno=monthly.srno ";
 	$st=$st." and monthly.cono=".$cono." and monthly.month='".$mon."' and monthly.fyyear=".$fyyr;
 	$con = connect();
-	$sql = $con->prepare($st);
-	$sql->execute(array($cono,$mon,$fyyr));
+
+	$res=mysql_query($st,$con);
+//	print_r($res);   
+//	$st=$_SESSION['co']->cname."~".$_SESSION['co']->addr."~".$_SESSION['co']->epfno;
+//	$n=1;
+
+
+
+
+//	$sql = $con->prepare($st);
+//	$sql->execute(array($cono,$mon,$fyyr));
 	$n=0;
 //	echo $st;
 //	return;
 	$file = fopen($fname,"w+");
-	while($row=$sql->fetch())
+	while($row=mysql_fetch_array($res))
+//	while($row=$sql->fetch())
 	{
 		$nst="";
 	/*	$nst=$row['pfno']."#~#".$row['sname']."#~#".$row['wages']."#~#".$row['wages']."#~#".$row['share1']."#~#";
